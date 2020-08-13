@@ -1,0 +1,7 @@
+@import "src/styles/colors";
+
+.btn-primary:disabled {
+  background-color: $btn-border !important;
+  color: $color-white !important;
+  opacity: 1 !important;
+}

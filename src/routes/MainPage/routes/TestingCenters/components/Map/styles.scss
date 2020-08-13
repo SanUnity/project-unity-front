@@ -1,0 +1,115 @@
+@import "src/styles/colors";
+
+#map {
+  flex: 1 1 100%;
+  width: 100%;
+  height: calc(100vh - 164px);
+}
+
+.map-a {
+  .row {
+    margin: 0;
+  }
+
+  .container-fluid {
+    padding: 0;
+  }
+
+  .col-12 {
+    padding: 0;
+  }
+
+  .sdf {
+    background: $bg-color-white;
+    padding: 15px 15px 0 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .tab-content {
+    padding: 0;
+  }
+
+  &.map-hospitals {
+    .tab-content {
+      margin-top: 106px;
+      overflow: hidden;
+
+      > .map {
+        height: 100%;
+      }
+    }
+  }
+
+  a.nav-link.active {
+    background: $bg-color-wine;
+    mix-blend-mode: normal;
+    border-radius: 40px;
+    border: transparent;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: $color-white;
+  }
+
+  ul.nav.nav-pills {
+    display: flex;
+    background-color: $cdmx-light-gray !important;
+  }
+
+  li.nav-item {
+    flex: 1;
+  }
+
+  a.nav-link {
+    background: $bg-color-gray;
+    mix-blend-mode: normal;
+    border-radius: 40px;
+    border: transparent;
+    padding: 6px 0;
+    text-align: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: $color-black;
+  }
+
+  ul.nav.nav-pills {
+    background: $bg-color-gray;
+    border-radius: 40px;
+    margin-bottom: 15px;
+  }
+}
+
+.aud {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1;
+}
+
+.aud-d {
+  width: 70px;
+  height: 70px;
+  background: $bg-color-wine;
+  border-radius: 100px;
+  text-align: center;
+  line-height: 70px;
+}
+
+.testing-centres-list {
+  display: flex;
+  /*.d-se {
+    z-index: 0;
+  }*/
+
+  .map + div {
+    flex: 1 1 auto;
+    max-height: 100%;
+    overflow: auto;
+  }
+}

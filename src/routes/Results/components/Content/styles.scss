@@ -1,0 +1,234 @@
+@import "src/styles/colors";
+.toda {
+  a {
+    color: $color-green;
+    text-decoration: none;
+
+    &:hover {
+      color: $color-green;
+      text-decoration: none;
+    }
+  }
+
+  .emergencyCall {
+    margin-bottom: 15px;
+
+    a {
+      color: $color-white;
+    }
+  }
+
+  .primaryButton {
+    .btn {
+      background: $color-green;
+      box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+      border-radius: 58px;
+      border: transparent;
+      width: auto;
+      padding: 12px 40px 12px 40px;
+      font-family: Bitter, sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+      max-width: 272px;
+      &:focus,
+      &:hover,
+      &:active {
+        background: $color-green !important;
+        border-color: $color-green !important;
+      }
+    }
+  }
+  .secondaryButton {
+    .btn {
+      background: $color-white;
+      // box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+      border-radius: 58px;
+      width: auto;
+      padding: 12px 40px 12px 40px;
+      font-family: Bitter, sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      border-color: $color-green;
+      color: $color-green;
+      width: 100%;
+      max-width: 273px;
+
+      &:focus,
+      &:hover,
+      &:active {
+        background: $color-white !important;
+        border-color: $color-white !important;
+      }
+    }
+  }
+
+  .call-info {
+    display: flex;
+    margin-top: 20px;
+    text-align: left;
+
+    span {
+      font-family: SourceSansPro;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      color: $color-dark-gray;
+
+      strong {
+        font-family: Metropolis, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        color: $color-dark-gray;
+      }
+    }
+
+    img {
+      margin-right: 10px;
+    }
+  }
+
+  .toda-txt {
+    text-align: center;
+    h3 {
+      font-family: Bitter, sans-serif;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      margin: 0 auto 0.5rem;
+      white-space: pre-wrap;
+      color: $color-dark-gray;
+    }
+
+    h5 {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
+      margin: 0 auto 0.5rem;
+      white-space: pre-wrap;
+      color: $color-dark-gray;
+    }
+
+    .principalButtonsContainer {
+      margin: 15px 0 0;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $default-border-color;
+    }
+  }
+  .toda-three-image {
+    padding-top: 10px;
+    margin-top: 10px;
+
+    .text-center {
+      margin-bottom: 25px;
+    }
+    p {
+      font-size: 16px !important;
+      line-height: 24px !important;
+      text-align: center;
+      white-space: pre-wrap;
+    }
+
+    .three-im-txt {
+      display: flex;
+    }
+
+    .usa-la-ev {
+      flex: 1;
+      text-align: center;
+
+      p {
+        font-weight: bold;
+        font-size: 14px !important;
+        line-height: 18px !important;
+        margin: 10px auto 30px;
+      }
+    }
+
+    .si-text {
+      margin-top: 40px;
+
+      p {
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 auto 30px;
+      }
+    }
+
+    .top-text-bdr {
+      border-top: 1px solid $default-border-color;
+      padding-top: 30px;
+      padding-bottom: 10px;
+
+      .nmo p:last-child {
+        text-align: right;
+      }
+    }
+
+    .top-in-txt {
+      display: flex;
+      p {
+        font-size: 14px !important;
+        line-height: 18px !important;
+        text-align: left;
+        flex: 1;
+      }
+
+      .bold-text-c {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px !important;
+      }
+    }
+
+    .opd {
+      p {
+        margin-bottom: 5px !important;
+      }
+    }
+  }
+
+  .recomentations-list {
+    padding: 0px 9px;
+    .list {
+      .listItem {
+        display: -webkit-box;
+        margin-bottom: 24px;
+        .numberContainer {
+          width: 32px;
+          height: 32px;
+          background: $green-federal;
+          border-radius: 50%;
+          text-align: center;
+          color: $color-white;
+          .number {
+            font-family: Bitter, sans-serif;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 32px;
+          }
+        }
+        .textContainer {
+          margin-left: 20px;
+          max-width: 85%;
+
+          span {
+            font-family: OpenSans, sans-serif;
+            font-style: normal;
+            font-size: 16px;
+            line-height: 24px;
+          }
+          a {
+            color: $color-black;
+          }
+        }
+      }
+    }
+  }
+
+}

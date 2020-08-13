@@ -1,0 +1,42 @@
+@import "../../../styles/colors";
+
+.si-no {
+  label {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0;
+    color: #898d8d;
+    border: 1px solid #898d8d;
+    border-radius: 4px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    line-height: 24px;
+    font-weight: bold;
+
+    &:last-child {
+      margin-left: 24px;
+    }
+  }
+
+  input[type="radio"] {
+    display: none;
+    &:checked {
+      + label {
+        &.positive {
+          color: white;
+          border-color: $cdmx-button-bg;
+          background-color: $cdmx-button-bg;
+        }
+
+        &:not(.positive) {
+          color: $color-dark-gray;
+          border-color: $bg-color-dark;
+          background-color: $bg-color-dark;
+        }
+      }
+    }
+  }
+}

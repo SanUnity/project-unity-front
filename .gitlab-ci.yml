@@ -1,0 +1,16 @@
+image: kroniak/ssh-client
+stages:
+  - deploy
+
+
+deploy:
+  stage: deploy
+  script:
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "$SSH_PRIVATE_KEY_PRODUCTION" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh $DEPLOY_PRODUCTION_SSH_HOST "cd ${DEPLOY_PRODUCTION_PATH};sudo git checkout -- build/;sudo git pull origin pre; npm install; sudo npm run build-pre"
+  only:
+    - pre

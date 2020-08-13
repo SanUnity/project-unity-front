@@ -1,0 +1,207 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+
+.main-back {
+  height: 100%;
+  color: $color-white;
+  text-align: center;
+  display: flex;
+  h1 {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 44px;
+    margin-bottom: 0;
+    font-family: Bitter, sans-serif;
+  }
+
+  h4 {
+    font-family: Bitter, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  .hero-text-image {
+    position: relative;
+    top: 30vh;
+    margin-bottom: 4px;
+  }
+
+  .hero-text-title {
+    position: relative;
+    top: 30vh;
+  }
+
+  .hero-gob-footer {
+    img {
+      position: absolute;
+      left: 28.53%;
+      right: 28.8%;
+      top: 88.18%;
+      bottom: 6.24%;
+    }
+
+  }
+
+  .mex-gob-img-footer {
+    background-image: url(/assets/images/onboarding-footer.svg);
+    height: 180px;
+    width: 100%;
+    z-index: 1;
+    background-position: top center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:before {
+    content: "";
+    background-color: $bg-color-green;
+    position: absolute;
+    background-image: url('/assets/images/splash-screen-bg.svg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.welcome {
+
+  &.add-bg {
+    background-color: $bg-color-pastel;
+    height: 100%;
+    display: flex;
+
+
+    .back {
+      overflow: hidden;
+      height: 100%;
+      position: absolute;
+      width: 100%;
+      z-index: 0;
+
+      .img {
+          height: 100%;
+          left: 0px;
+          position: fixed;
+          top: 0px;
+          width: 100%;
+          z-index: -1;
+      }
+    }
+
+    .col-a-sec {
+      margin-bottom: 5px;
+      margin-left: 4%;
+    }
+  }
+
+
+  h4 {
+    font-size: 20px;
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    color: $green-federal;
+    margin-top: 20px;
+    margin-bottom: 0;
+    font-family: OpenSans, sans-serif;
+  }
+
+  h2 {
+    color: $green-federal;
+    font-family: 'Bitter', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .welcome-text {
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: flex;
+    flex-direction: column;
+    padding: 0 24px;
+
+    > span {
+      color: $green-federal;
+      font-family: 'OpenSans', sans-serif;
+      margin: calc((40 * 100vw) / #{$xs}) 0 0;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .content {
+      flex: 100%;
+      margin-top: calc((46 * 100vw) / #{$xs});
+
+
+      .col-a-sec {
+        p {
+          color: $green-federal;
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+    }
+
+  }
+
+  &.signup-options {
+    .welcome-text {
+      h2 {
+        margin: calc((40 * 100vw) / #{$xs}) 0 0;
+      }
+
+      > span {
+        margin-top: 10px;
+      }
+
+      .img-big {
+        height: 215px;
+        margin-top: 23px;
+      }
+
+      .link-anonymous {
+        display: block;
+        text-align: center;
+        font-weight: bold;
+        color: $color-green;
+        margin-top: 20px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .top-a {
+    position: absolute;
+    right: 0;
+    top: 104px;
+  }
+
+  .top-b {
+    position: absolute;
+    right: 0;
+    top: 180px;
+  }
+
+  .btn-my-sec.text-center {
+    margin: 30px 0 10px;
+    text-align: center;
+  }
+
+  .btn-clr-chng {
+    background: $bg-color-wine;
+    box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+    border-radius: 58px;
+    border: transparent;
+    width: auto;
+    padding: 12px 40px  12px 40px;
+    font-family: Bitter, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+  }
+}

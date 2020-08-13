@@ -1,0 +1,23 @@
+@import "../../../styles/colors";
+
+.crs-txt {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  > img {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.crs-txt h4 {
+  flex: 1;
+  margin: 0;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  align-items: center;
+  text-align: center;
+  font-family: Bitter, sans-serif;
+  color: $green-federal;
+}

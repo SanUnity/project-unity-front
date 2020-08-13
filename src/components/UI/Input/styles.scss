@@ -1,0 +1,20 @@
+@import "src/styles/colors";
+
+.border-d {
+  border: 1px solid $color-dark-gray;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 9px 14px;
+
+  label {
+    margin: 0;
+    font-size: 16px;
+    display: block;
+  }
+
+  &.error {
+  border: 1px solid #CB2833;
+  box-shadow: 0px 16px 16px rgba(0, 0, 0, 0.12);
+  color: #CB2833;
+  }
+}

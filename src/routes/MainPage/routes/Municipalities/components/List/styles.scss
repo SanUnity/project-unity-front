@@ -1,0 +1,44 @@
+@import "src/styles/colors";
+
+.municipalities-list-wrapper {
+  &#map-sec-b {
+    .suburbName {
+      margin-bottom: 10px;
+      font-family: Bitter, sans-serif;
+    }
+
+    .bld {
+      .level-color-item {
+        margin-right: 6px;
+      }
+
+      &.is-level-low {
+        .level-color-item {
+          background-color: $level-low;
+        }
+      }
+
+      &.is-level-medium {
+        .level-color-item {
+          background-color: $level-medium;
+        }
+      }
+
+      &.is-level-high {
+        .level-color-item {
+          background-color: $level-high;
+        }
+      }
+
+      &.is-level-very-high {
+        .level-color-item {
+          background-color: $level-very-high;
+        }
+      }
+    }
+  }
+
+  .m-ap-text {
+    padding: 10px 0 6px;
+  }
+}

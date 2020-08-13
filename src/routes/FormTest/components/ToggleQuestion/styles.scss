@@ -1,0 +1,25 @@
+@import '../../../../styles/colors';
+
+.form-question {
+  display: flex;
+  &--error {
+    color: $cdmx-error;
+  }
+
+  &__text {
+    flex: 1 1 100%;
+    margin-right: 8px;
+    p {
+      margin: 0;
+      white-space: pre-wrap;
+      
+      &:first-child {
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__control {
+    flex: 0 0 88px; // 32px + 32px + 24px;
+  }
+}

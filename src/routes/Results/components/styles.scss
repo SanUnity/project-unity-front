@@ -1,0 +1,57 @@
+@import 'src/styles/colors';
+
+.test-abb {
+  padding: 20px 0 !important;
+
+  .fixed-header {
+    background-color: #fff;
+    padding: 24px 24px 4px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+  }
+
+  .result-main-img  {
+    margin-top: 52px !important;
+  }
+}
+
+.toda-last {
+  background: $bg-color-sand;
+  text-align: center;
+  padding: 30px 0;
+}
+
+img.tria {
+  margin-bottom: -26px;
+  width: 100%;
+}
+
+.h-id {
+  width: 70px;
+  height: 70px;
+  background: $bg-color-wine;
+  line-height: 70px;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+
+.last-ho {
+  margin-top: 30px;
+}
+
+.toda-last-txt {
+  margin-top: 20px;
+
+  h4 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 1rem !important;
+    white-space: pre-wrap;
+  }
+}

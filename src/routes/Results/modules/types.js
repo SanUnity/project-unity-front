@@ -1,0 +1,1 @@
+export const RESULTS_AQUIRED = 'RESULTS_AQUIRED';

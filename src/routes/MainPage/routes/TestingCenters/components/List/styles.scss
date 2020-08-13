@@ -1,0 +1,124 @@
+@import "src/styles/colors";
+
+.map-a-sec {
+  display: flex;
+  border-bottom: 1px solid $default-border-color;
+  padding: 0 15px;
+}
+
+.m-ap-text {
+  flex: 1;
+  margin-left: 10px;
+  padding: 5px 0 10px 0;
+
+  .p-title-item {
+    margin-bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+  }
+
+  .level {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+
+.m-ap-text p {
+  font-size: 12px !important;
+  line-height: 16px !important;
+
+  &.desc {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &:empty {
+    margin: 0;
+  }
+}
+
+#map-sec-b {
+  padding-bottom: 75px;
+
+  .suburbName {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 27px;
+    margin: 20px 24px 2px;
+  }
+  .bld {
+    font-weight: bold;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    color: $color-black;
+    margin-bottom: 0;
+    padding: 0 0 4px;
+    position: relative;
+
+    .level-color-item {
+      background-color: $cdmx-gray-55;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      border-radius: 50%;
+      margin-right: 3px;
+    }
+
+    &.is-level1 {
+      .level-color-item {
+        background-color: $level-green;
+      }
+    }
+
+    &.is-level2 {
+      .level-color-item {
+        background-color: $level-yellow;
+      }
+    }
+
+    &.is-level3 {
+      .level-color-item {
+        background-color: $level-red;
+      }
+    }
+  }
+
+  .hun {
+    span {
+      font-size: 14px;
+      line-height: 20px;
+      color: $color-black;
+      vertical-align: middle;
+
+      &:hover,
+      &:active {
+        background: $bg-color-gray;
+        border-radius: 40px;
+        padding: 5px 12px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.desc {
+  margin-bottom: 0;
+}
+
+.no-results {
+  text-align: center;
+  padding: 35px 0 0;
+}
+
+.hast-se {
+  align-items: center;
+  background-color: $color-white;
+}
+
+.search-container {
+  position: relative;
+  height: 80px;
+}

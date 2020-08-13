@@ -1,0 +1,128 @@
+@import "src/styles/colors";
+
+.faq-view {
+  .sdf {
+    padding: 20px 15px 0 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+
+    .nav-pills {
+      margin-bottom: 0;
+    }
+  }
+
+  .faq-a {
+    .tab-content {
+      padding: 0 15px;
+      margin-top: 84px;
+      overflow: hidden;
+      background-color: $color-white;
+      min-height: calc(100vh - 84px - 70px - env(safe-area-inset-bottom) - env(safe-area-inset-top));
+    }
+
+    p {
+      font-size: 16px !important;
+      line-height: 24px !important;
+    }
+  }
+}
+
+.exposed-modal-wrapper {
+  padding: 0;
+
+  .exposed-header {
+    position: fixed;
+    width: 100%;
+    border-radius: 12px 12px 0px 0px;
+    background-color: $color-white;
+    padding: 15px 20px 0;
+  }
+
+  .exposed-info-wrapper {
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 25px;
+
+    img {
+      margin: 5% auto;
+      width: 45%;
+      max-height: 300px;
+    }
+
+    h3 {
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      white-space: pre-wrap;
+    }
+
+    .btn {
+      background: $color-green;
+      box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+      border-radius: 58px;
+      border: transparent;
+      width: auto;
+      padding: 12px 40px 12px 40px;
+      font-family: Bitter, sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+      max-width: 272px;
+      margin-bottom: 15px;
+      &:focus,
+      &:hover,
+      &:active {
+        background: $color-green !important;
+        border-color: $color-green !important;
+      }
+    }
+  }
+}
+
+.tab-municipalities-wrapper {
+  margin: 0 -15px;
+  .map-a .sdf {
+    position: relative;
+    padding: 6px 15px 0;
+    z-index: 0;
+
+    .header-toggle {
+      display: none;
+    }
+
+    .nav-pills {
+      margin-bottom: 5px;
+      background-color: $color-white !important;
+
+      .nav-item .nav-link {
+        background-color: $color-white;
+        border-bottom: 3px solid #E5E5E5;
+        border-radius: 0;
+
+        &.active {
+          background-color: $color-white;
+          color: #333;
+          border-color: $color-green;
+        }
+      }
+    }
+  }
+
+  .view-content-wrapper {
+    padding-top: 0;
+
+    .map #map {
+      height: calc(100vh - 202px);
+    }
+
+    .list #map-sec-b {
+      padding-bottom: 10px;
+    }
+  }
+}

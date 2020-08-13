@@ -1,0 +1,204 @@
+@import "./colors";
+@import "./variables";
+
+$max-width: 640px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "OpenSans", sans-serif;
+}
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.align-center {
+  text-align: center;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  > section:nth-last-of-type(2) {
+    padding-bottom: 80px;
+  }
+}
+
+//Function to convert px value into rem
+//You can replace rem with any other value you want (rem is most preferred value for web)
+@function px-to-rem($target, $context: $base-size) {
+  @return ($target / $context) * 1em;
+}
+
+@media screen and (min-width: 768px) {
+  .container-fluid {
+    width: 600px;
+  }
+}
+
+@media screen and (min-width: $max-width) {
+  .welcome h2 {
+     font-size: 36px;
+  }
+
+  section.login-head-inn {
+    margin: 0 auto;
+  }
+
+  .login-head-inn .pag-login .btn-mar-log .btn-clr-chng,
+  .login-head-inn .btn-mar-log .btn-clr-chng {
+    position: relative;
+    width: 250px;
+  }
+
+  ul.nav.nav-pills {
+    /*width: $max-width;
+    margin: 0 auto;*/
+    cursor: pointer;
+    margin-bottom: 0;
+  }
+  .main-navigation {
+    width: $max-width;
+    margin: 0 auto;
+  }
+
+  .search-sec-text {
+    width: $max-width;
+  }
+  .sdf {
+    width: $max-width !important;
+    position: relative !important;
+  }
+
+  .modal-hospital-details .hos-head-txt {
+    width: $max-width;
+    position: absolute;
+  }
+
+  .profiles-wrapper .test-a-text h4 {
+    margin: 0 -20px !important;
+  }
+
+  .map-active,
+  .hospitalsHeader,
+  .news-main-wrapper .news-section {
+    padding-top: 0;
+  }
+
+  .faq-view .faq-a .tab-content {
+    margin-top: 0;
+  }
+
+  .exposed-modal-wrapper .exposed-header,
+  .overlay.open {
+    width: $max-width;
+  }
+}
+
+.btn-primary {
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: $bg-color-wine !important;
+    border-color: $bg-color-wine !important;
+    box-shadow: none !important;
+  }
+}
+
+
+/* The customcheck */
+.form-check-label {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.form-check-label input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #FFF;
+    border: 1px solid $color-dark-gray;
+    border-radius: 5px;
+}
+
+/* When the checkbox is checked, add a blue background */
+.form-check-label input:checked ~ .checkmark {
+    background-color: $bg-color-wine;
+    border-radius: 5px;
+    border-color: $bg-color-wine;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.form-check-label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.form-check-label .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 7px;
+    height: 13px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+
+.crop-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+
+    &.lines-1 { -webkit-line-clamp: 1; }
+    &.lines-2 { -webkit-line-clamp: 2; }
+    &.lines-3 { -webkit-line-clamp: 3; }
+    &.lines-4 { -webkit-line-clamp: 4; }
+    &.lines-5 { -webkit-line-clamp: 5; }
+    &.lines-6 { -webkit-line-clamp: 6; }
+    &.lines-7 { -webkit-line-clamp: 7; }
+    &.lines-8 { -webkit-line-clamp: 8; }
+    &.lines-9 { -webkit-line-clamp: 9; }
+    &.lines-10 { -webkit-line-clamp: 10; }
+}

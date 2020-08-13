@@ -1,0 +1,81 @@
+@import "src/styles/colors";
+
+.ProfileInfo__Container {
+  padding-bottom: 30px;
+  background-color: $color-white;
+  .snackbar {
+    position: fixed;
+    margin-top: 24px;
+    z-index: 999;
+  }
+  header {
+    padding: 20px;
+    background: $bg-color-white;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .subtitle {
+    text-align: center;
+    padding: 24px;
+    margin-top: 60px;
+    .hashtag {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: bold;
+      color: $color-dark-green;
+    }
+  }
+  .form-input-fields-container {
+    padding: 0px 24px;
+
+    .form-field-sub-label {
+      font-size: 14px;
+      line-height: 20px;
+      color: $color-dark-gray;
+    }
+
+    .InfoSubtitle {
+      margin-top: 25px;
+      font-family: 'Bitter', sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 23px;
+      color: $color-dark-green;
+    }
+
+    .default-profile-question {
+      .form-question__control {
+        flex: 0;
+      }
+    }
+  }
+  .button-wrapper {
+    display: flex;
+    button {
+      font-family: 'Bitter', sans-serif;
+      display: block;
+      margin: 28px auto 0;
+      border-radius: 48px;
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: bold;
+      background-color: $color-green;
+      color: $color-white;
+      outline: none;
+      border: none;
+      box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.12);
+      padding: 12px 30px;
+
+      &.delete {
+        background-color: $color-red;
+      }
+      &.disabled {
+        background-color: $btn-border;
+        color: $cdmx-gray-99;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@import "../../styles/colors";
+
+.timer-wrapper {
+  .well {
+    display: flex;
+
+    img {
+      margin-right: 3px;
+    }
+
+    .timer {
+      font-style: normal;
+      font-weight: bold;
+      font-size: 12px;
+      line-height: 16px;
+      color: $green-federal;
+      font-family: Bitter, sans-serif;
+      padding: 0 2px;
+    }
+  }
+
+}

@@ -1,0 +1,226 @@
+@import "src/styles/colors";
+
+.form-test {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 36px;
+  overflow-y: auto;
+
+  > header {
+    .subtitle {
+      text-align: center;
+      white-space: pre-wrap;
+      padding: 0 0 36px 0;
+
+      .hashtag {
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: bold;
+        color: $green-federal;
+        font-family: Bitter, sans-serif;
+      }
+
+      > h5 {
+        font-size: 20px;
+        line-height: 28px;
+        color: $cdmx-dark-gray;
+        margin: 0;
+
+        b {
+          font-family: Bitter, sans-serif;
+          font-weight: bold;
+          font-size: 18px;
+          line-height: 22px;
+        }
+      }
+    }
+  }
+
+  > main {
+    flex: 1 1 100%;
+    > form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  .question-list {
+    .form-question {
+      padding-bottom: 18px;
+      border-bottom: solid 1px $border-color;
+      &:not(:first-child) {
+        padding-top: 22px;
+      }
+
+      &--error {
+        border-color: $cdmx-error;
+      }
+    }
+  }
+
+  button[type="submit"] {
+    display: block;
+    margin: 34px auto 0;
+    border-radius: 28px;
+    font-size: 16px;
+    font-family: Bitter, sans-serif;
+    font-weight: bold;
+    background-color: $bg-color-wine;
+    color: white;
+    width: auto;
+    padding: 12px 40px  12px 40px;
+    outline: none;
+    border: none;
+
+    &:not(.disabled) {
+      box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+    }
+
+    &:active {
+      background-color: mix($cdmx-button-bg, black, 90%);
+    }
+
+    &.disabled {
+      background-color: $bg-color-dark;
+      color: $cdmx-gray-99;
+    }
+  }
+}
+
+.form-input-fields-container,
+.question-list {
+  .two-in-row {
+    display: flex;
+    flex-direction: row;
+
+    > div:first-child {
+        margin-right: 24px;
+    }
+  }
+
+  input {
+    border: transparent;
+    outline: 0;
+    padding: 0;
+    line-height: normal;
+    height: 22px;
+
+    &:focus {
+      outline: 0 !important;
+      border: transparent !important;
+      box-shadow: none;
+    }
+
+    &::placeholder {
+      color: $color-light-gray-black;
+    }
+  }
+}
+
+.form-field-sub-label {
+  display: flex;
+  justify-content: flex-end;
+}
+
+
+.form-field-sub-label {
+  a {
+    color: $color-green;
+    font-family: Bitter;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    margin-top: 8px;
+
+    &:focus,
+    &:hover {
+      color: $color-green;
+      text-decoration: none;
+    }
+  }
+}
+
+.drop-a {
+  border-top: 1px solid $default-border-color;
+  padding-top: 30px;
+
+  h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 28px;
+    text-align: center;
+  }
+
+  .border-d-s {
+    border: 1px solid $border-color-dark-gray;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 9px;
+    margin: 0;
+
+    label {
+      margin: 0;
+    }
+
+    input {
+      border: transparent;
+      padding: 0;
+      height: auto;
+      box-shadow: none;
+    }
+  }
+
+  .border-single-input {
+    border: 1px solid $border-color-dark-gray;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background: #fff;
+    padding: 6px 12px;
+    display: inline-block;
+    margin: 20px 10px 20px 0;
+    flex: 100% 1;
+    position: relative;
+  }
+
+  .q-text {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: $bg-color-wine;
+    text-align: center;
+  }
+
+  .btn-test-bb-chng {
+    background: $btn-border;
+    border-radius: 40px;
+    width: 194px;
+    height: 48px;
+    line-height: 48px;
+    color: $color-white;
+    margin-bottom: 30px;
+    padding: 0;
+    opacity: 1;
+    font-weight: bold;
+
+    &:hover,
+    &:focus,
+    &-active {
+      background: $bg-color-wine;
+      box-shadow: 0px 10px 12px $box-shadow-light-green;
+      color: $color-white;
+    }
+  }
+}
+
+.selects-container {
+  display: flex;
+}
+
+.form-group {
+  flex: 1 1 100%;
+}

@@ -1,0 +1,582 @@
+@import "src/styles/colors";
+
+.hosp-chas {
+  text-align: center;
+  padding: 20px 0;
+}
+
+p.hos-c-t {
+  font-weight: bold;
+  font-size: 17.6208px !important;
+  line-height: 26px !important;
+}
+
+p.hos-c-tt {
+  font-size: 13.2156px !important;
+  line-height: 18px !important;
+}
+
+.hop-in-bdr {
+  text-align: center;
+}
+
+.hop-in-bdr h5 {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px !important;
+  line-height: 26px !important;
+  margin-bottom: 0;
+}
+
+.hos-lo-s .btn-hos-chng {
+  background: $bg-color-light-green;
+  border-radius: 40px;
+  border: transparent;
+  font-size: 13px !important;
+}
+
+.hos-lo-s .btn-hos-chng-s {
+  background: $bg-color-gray;
+  border-radius: 40px;
+  border: transparent;
+  font-size: 13px !important;
+  color: $color-black;
+}
+
+.hos-lo-s .btn-hos-chng-s:hover {
+  background: $bg-color-light-green;
+  color: $color-white;
+}
+
+.hos-lo-s .btn:active {
+  background-color: $bg-color-light-green !important;
+  border-color: $bg-color-light-green !important;
+}
+
+.btn-hos-chng-center {
+  margin: 0 5px;
+}
+
+p.hos-lo-s-p {
+  font-size: 12px !important;
+  line-height: 16px !important;
+  color: $color-Gray35;
+}
+
+.hos-lo-s {
+  padding: 15px 0;
+}
+
+.hos-lo-s-a .btn-hos-chng-lst {
+  background: $bg-color-wine;
+  border-radius: 40px;
+  border: transparent;
+  width: 177px;
+  height: 48px;
+  padding: 0;
+  line-height: 48px !important;
+  margin: 15px 0;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background: $bg-color-wine !important;
+    border-color: $bg-color-wine !important;
+    box-shadow: none !important;
+  }
+}
+
+.hun-h_s {
+  flex: 1;
+  text-align: right;
+
+  img {
+    margin-right: 3px;
+  }
+}
+
+.hun-h_s a {
+  background: $bg-color-gray;
+  padding: 5px 12px;
+  border-radius: 40px;
+  font-size: 14px !important;
+  color: $color-black;
+  white-space: nowrap;
+}
+
+.hun-h_s a:hover,
+.hun-h_s a:active {
+  text-decoration: none;
+  color: $color-black;
+}
+
+.hop-in-bdr-de h5 {
+  font-weight: bold;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  margin: 0;
+  padding-top: 12px;
+}
+
+li.hos-dot {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: $color-dark-gray;
+  margin: 0;
+  padding-bottom: 12px;
+  list-style: none;
+}
+
+li.hos-dot:before {
+  content: "\2022";
+  color: $color-dark-green;
+  font-weight: bold;
+  display: inline-block;
+  width: 16px;
+  font-size: 36px !important;
+  vertical-align: middle;
+  margin-top: -5px;
+}
+
+.p-_hos {
+  display: flex;
+  align-items: flex-end;
+  align-items: baseline;
+  padding-top: 15px;
+
+  img:last-of-type {
+    margin: 0 0 auto 0;
+  }
+}
+
+.ho_txt_d {
+  flex: 1;
+  margin-left: 12px;
+
+  small {
+    display: block;
+    color: $color-black;
+    font-size: 12px;
+  }
+}
+
+.ho_txt_d p:first-child {
+  font-weight: bold;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  margin: 0;
+}
+
+.ho_txt_d p:last-child {
+  font-size: 14px !important;
+  line-height: 18px !important;
+  margin: 0;
+}
+
+.hun-h_s_j {
+  flex: 1;
+  text-align: right;
+
+  img {
+    margin-right: 3px !important;
+  }
+}
+
+.hun-h_s_j a {
+  background: $bg-color-wine;
+  border-radius: 40px;
+  padding: 6px 12px;
+  color: $color-white;
+  font-size: 14px !important;
+
+  &:hover {
+    color: $color-white;
+    text-decoration: none;
+  }
+}
+
+
+#overlayMiddleware {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 5;
+  display: none;
+
+  &.open {
+    display: block;
+  }
+}
+
+.filters-wwrapper {
+  background: white;
+  padding: 56px 0px 0;
+
+  .filter-type-wrapper {
+
+    > p {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 24px;
+      color: $color-dark-gray;
+      margin: 12px 0;
+    }
+
+    .filter-type-list {
+      list-style: none;
+      margin-bottom: 0;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 5px;
+
+        .filter-type-title {
+          font-family: OpenSans, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 16px;
+          color: $cdmx-gray-33;
+
+          .filter-type-color {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            border-radius: 50%;
+            margin-right: 5px;
+            position: relative;
+            top: 4px;
+
+            &.color-low {
+              background-color: $level-low;
+            }
+            &.color-medium {
+              background-color: $level-medium;
+            }
+            &.color-high {
+              background-color: $level-high;
+            }
+            &.color-very-high {
+              background-color: $level-very-high;
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.map-hospitals {
+  .main-title {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    font-family: Bitter, sans-serif;
+    position: fixed;
+    width: 100%;
+    padding: 24px 24px 10px;
+    background-color: #FFF;
+    z-index: 5;
+  }
+
+  .level-select-wrapper {
+    padding: 8px 24px 0;
+  }
+}
+
+.d-se {
+  /* top: 176px !important; */
+}
+
+.selects-wrapper {
+
+  .form-group {
+    margin-bottom: 8px;
+    .a-select {
+      border: 1px solid $cdmx-gray-CC;
+      box-sizing: border-box;
+      border-radius: 4px;
+      padding: 6px 14px;
+      label {
+        font-size: 12px;
+        line-height: 16px;
+      }
+
+      select {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+.view-content-wrapper {
+  &.map-active {
+    .d-se {
+      position: absolute;
+      display: block;
+    }
+  }
+}
+
+.view-content-wrapper {
+  padding-top: 94px;
+}
+
+.modal-hospital-details {
+  .hos-head-txt {
+    display: flex;
+    padding: 10px 15px 15px;
+    position: fixed;
+    background-color: $color-white;
+    width: 100%;
+    left: 0;
+    border-radius: 12px 12px 0px 0px;
+
+    h4 {
+      font-family: Bitter, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 27px;
+      color: $color-black;
+      margin-bottom: 0;
+    }
+
+    p {
+      flex: 1;
+      text-align: right;
+      font-size: 16px;
+      line-height: 24px;
+      color: $modal-red;
+      margin-bottom: 0;
+    }
+  }
+
+  .hos-name {
+    padding-top: 54px;
+    font-size: 20px;
+    line-height: 24px;
+    color: $color-black;
+    font-family: Bitter, sans-serif;
+  }
+
+  .hos-det_sec {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid $cdmx-gray-CC;
+    padding-bottom: 10px !important;
+    margin-bottom: 5px;
+
+    .hos_det_l {
+      p {
+        font-family: Gotham, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px !important;
+        line-height: 24px !important;
+        color: $color-dark-gray !important;
+      }
+    }
+
+    .favorite-wrapper {
+      background-color: $bg-color-sand;
+      display: flex;
+      align-items: center;
+      border-radius: 15px;
+      padding: 5px 10px;
+
+      svg {
+        fill: $cdmx-gray-CC;
+        margin-right: 3px;
+      }
+
+      .txt-favorite,
+      .txt-make-favorite,
+      .txt-saving-favorite {
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .txt-favorite,
+      .txt-saving-favorite {
+        display: none;
+      }
+
+      &.is-favorite {
+        svg {
+          fill: $level-medium;
+        }
+
+        .txt-favorite {
+          display: block;
+        }
+
+        .txt-make-favorite {
+          display: none;
+        }
+      }
+
+      &.saving-favorite {
+        .txt-favorite,
+        .txt-make-favorite {
+          display: none;
+        }
+
+        .txt-saving-favorite {
+          display: block;
+        }
+      }
+    }
+
+  }
+
+  .level {
+    font-size: 16px;
+    line-height: 24px;
+
+    .is-covid {
+      background-color: #CCC;
+      color: #000;
+      padding: 2px 10px;
+      border-radius: 8px;
+      margin-left: 8px;
+    }
+  }
+
+  .firstLevel {
+    color: $level-green;
+  }
+  .secondLevel {
+    color: $level-yellow;
+  }
+  .thirdLevel {
+    color: $level-red;
+  }
+
+}
+
+
+.municipality-details-data {
+  .block-wrapper {
+    flex: 1 1;
+
+    .status-title {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 5px;
+    }
+
+    .status-txt {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 5px;
+    }
+
+    .status-bar-list {
+      list-style: none;
+      margin: 0;
+
+      li {
+        display: inline-block;
+        width: calc(25% - 4px);
+        height: 12px;
+        margin: 0 2px;
+        border-radius: 8px;
+        background-color: #E5E5E5;
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+
+      &.status-color-low {
+        li {
+          &:first-child {
+            background-color: $level-low;
+          }
+        }
+      }
+
+      &.status-color-medium {
+        li:nth-child(1) { background-color: $level-medium-70; }
+        li:nth-child(2) { background-color: $level-medium; }
+      }
+
+      &.status-color-high {
+        li:nth-child(1) { background-color: $level-high-50; }
+        li:nth-child(2) { background-color: $level-high-70; }
+        li:nth-child(3) { background-color: $level-high; }
+      }
+
+      &.status-color-very-high {
+        li:nth-child(1) { background-color: $level-very-high-30; }
+        li:nth-child(2) { background-color: $level-very-high-50; }
+        li:nth-child(3) { background-color: $level-very-high-70; }
+        li:nth-child(4) { background-color: $level-very-high; }
+      }
+
+    }
+
+    .cases-title {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 20px;
+      line-height: 24px;
+      margin-top: 25px;
+    }
+
+    .cases-total-list {
+      list-style: none;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding: 7px 5px;
+
+        .cases-type-title {
+          font-family: OpenSans, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 16px;
+          color: $color-dark-gray;
+
+          img {
+            margin-right: 5px;
+            position: relative;
+            bottom: 2px;
+          }
+        }
+
+        .cases-type-number {
+          font-family: OpenSans, sans-serif;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 16px;
+          color: $color-Gray35;
+        }
+      }
+    }
+  }
+}

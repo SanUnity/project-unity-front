@@ -1,0 +1,51 @@
+@import "src/styles/colors";
+
+.sdf {
+  background: $color-white;
+  padding: 15px;
+  .header-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .info-m {
+    font-size: 18px;
+    line-height: 22px;
+    font-family: Bitter, sans-serif;
+    font-weight: bold;
+    color: $color-dark-gray;
+  }
+
+  .nav-pills {
+    display: flex;
+
+    background: $cdmx-light-gray;
+    border-radius: 40px;
+    margin-bottom: 15px;
+
+    .nav-item {
+      flex: 1;
+
+      .nav-link {
+        font-family: OpenSans, sans-serif;
+        background: $cdmx-light-gray;
+        color: $cdmx-gray-33;
+        mix-blend-mode: normal;
+        border-radius: 40px;
+        border: transparent;
+        padding: 7px 0;
+        text-align: center;
+        font-size: 14px;
+        line-height: 20px;
+
+        &.active {
+          background: $color-green;
+          border: transparent;
+          color: $color-white;
+        }
+      }
+
+    }
+  }
+}

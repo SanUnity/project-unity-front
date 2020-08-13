@@ -1,0 +1,22 @@
+@import "src/styles/colors";
+
+.login-back-inn {
+  background: $bg-color-wine;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  .bth-login {
+    display: flex;
+  }
+
+  .two-img {
+    flex: 1;
+  }
+
+  .one-image {
+    flex: 1;
+    text-align: right;
+  }
+}

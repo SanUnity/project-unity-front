@@ -1,0 +1,81 @@
+@import "../../../styles/colors.scss";
+
+
+.ListItem {
+    &__img {
+        fill: $bg-color-wine;
+    }
+}
+
+.col-a-sec {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    margin-left: 7%;
+}
+
+.col-a-sec:last-child {
+    margin-bottom: 0px;
+}
+
+.col-a-sec p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 24px;
+    white-space: pre-wrap;
+}
+
+.col-a-sec img {
+    margin-right: 20px;
+    min-width: 35px;
+    min-height: 35px;
+    max-width: 35px;
+    max-height: 35px;
+}
+
+.two-s {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.two-s-im img {
+    margin-right: 0 !important;
+}
+
+.two-s h4 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    white-space: pre-wrap;
+}
+
+.two-s p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px !important;
+    line-height: 18px !important;
+    color: $color-triplet;
+}
+.welcome__list__item {
+    white-space: pre-line;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-bottom: 12px;
+    &:last-child {
+        margin-bottom: 0px;
+    }
+    p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    img {
+        margin-right: 20px;
+        min-width: 48px;
+        height: auto;
+    }
+}

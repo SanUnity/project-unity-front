@@ -1,0 +1,17 @@
+@import "../../../styles/colors";
+@import "../../../styles/variables";
+@import "../../../styles/colors";
+.MainPage {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 100%;
+  max-height: 100%;
+  overflow: auto;
+  background-color: $bg-federal-sand-2;
+  height: 100vh;
+
+  &.has-footer {
+    padding-bottom: $nav-height;
+    overflow-x: hidden;
+  }
+}

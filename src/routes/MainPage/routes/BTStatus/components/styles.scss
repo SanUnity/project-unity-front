@@ -1,0 +1,240 @@
+@import "src/styles/colors";
+@import "src/styles/variables";
+
+.bt-status-wrapper {
+  padding: 0 24px;
+  h3 {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .bt-status-img {
+    width: 75%;
+    margin: 5% auto 0;
+    display: block;
+    max-height: 300px;
+  }
+
+  .action-wrapper {
+    text-align: center;
+
+    .btn {
+      background: $color-green;
+      box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+      border-radius: 58px;
+      border: transparent;
+      width: auto;
+      padding: 12px 40px 12px 40px;
+      font-family: Bitter, sans-serif;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%;
+      max-width: 272px;
+      &:focus,
+      &:hover,
+      &:active {
+        background: $color-green !important;
+        border-color: $color-green !important;
+      }
+    }
+  }
+
+  .bt-status-info {
+    margin-top: 25px;
+    margin-bottom: 20px;
+
+    .info-title {
+      text-align: left;
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      color: $color-dark-gray;
+    }
+
+    .info-card-wrapper {
+      background-color: $color-white;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.14);
+      margin-bottom: 15px;
+      padding: 10px 24px;
+      text-align: left;
+      border-radius: 8px;
+
+      img {
+        height: 40px;
+      }
+
+      .p-info-title {
+        font-family: OpenSans, sans-serif;
+        font-style: normal;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-dark-gray;
+        margin-bottom: 0;
+        text-align: left;
+      }
+
+      .p-info-description {
+        font-family: OpenSans, sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 20px;
+        color: $color-green;
+        margin-bottom: 0;
+        text-align: right;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  &.is-active {
+    h3 {
+      strong {
+        color: #50d850;
+      }
+    }
+  }
+
+  &.is-incompatible {
+    .bt-status-img {
+      margin: 12% auto 10%;
+    }
+  }
+
+  &.is-inactive,
+  &.is-incompatible {
+    h3 {
+      strong {
+        color: $color-red;
+      }
+    }
+  }
+
+}
+
+.steps-moda-wrapper {
+  padding: 0 !important;
+
+  .steps-modal-header {
+    position: fixed;
+    width: 100%;
+    border-radius: 12px 12px 0px 0px;
+    background-color: $color-white;
+    padding: 15px 20px 0;
+
+    span {
+      font-weight: bold;
+      padding-left: 10px;
+      position: relative;
+      top: 3px;
+      color: $color-dark-gray;
+    }
+  }
+
+  .ios-steps-wrapper {
+    padding: 15px 20px;
+    margin-top: 35px;
+    img {
+      width: 100%;
+      margin-top: 28px;
+    }
+
+    .modal-actions-wrapper {
+      text-align: center;
+      .btn {
+        margin: 10px 0;
+        background: $color-green;
+        box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
+        border-radius: 58px;
+        border: transparent;
+        width: auto;
+        padding: 12px 40px 12px 40px;
+        font-family: Bitter, sans-serif;
+        font-weight: bold;
+        font-size: 16px;
+        width: 100%;
+        max-width: 272px;
+        &:focus,
+        &:hover,
+        &:active {
+          background: $color-green !important;
+          border-color: $color-green !important;
+        }
+      }
+    }
+  }
+}
+
+.bt-information {
+  padding-top: 25px;
+
+  > div {
+    h2 {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 28px;
+      text-align: center;
+    }
+
+    img {
+      width: 80% !important;
+      margin: 20px auto;
+      display: block;
+    }
+
+    p {
+      font-family: OpenSans, sans-serif;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 22px;
+      text-align: center;
+    }
+
+    &.active-info {
+      h2 {
+        color: $green-federal;
+      }
+    }
+
+    &.inactive-info {
+      h2 {
+        color: $color-green;
+      }
+    }
+  }
+}
+
+.protocols-information {
+  .protocol-block {
+    padding: 10px 0;
+  }
+
+  img {
+    width: 35% !important;
+    margin-top: 0 !important;
+  }
+
+  .p-description {
+    margin-bottom: 0;
+  }
+
+  a {
+    text-align: center;
+    text-transform: uppercase;
+    color: $color-green !important;
+    font-weight: bold;
+    text-decoration: underline !important;
+    padding: 10px 0 20px;
+
+    &:hover {
+      color: $color-green;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+@import "../../styles/colors";
+/**/
+:root {
+  --main-color: #eaeaea;
+  --stroke-color: black;
+}
+
+.ErrorBoundary {
+  height: 100vh;
+  padding-top: 25%;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  h1 {
+    margin: 100px auto 0 auto;
+    color: var(--stroke-color);
+    font-family: Bitter, sans-serif;
+    font-size: 10rem; line-height: 10rem;
+    font-weight: 200;
+    text-align: center;
+  }
+
+  h2 {
+    margin: 20px auto 30px auto;
+    font-family: Bitter, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 200;
+    text-align: center;
+    padding: 0 25px;
+  }
+
+  h1,
+  h2 {
+    -webkit-transition: opacity 0.5s linear, margin-top 0.5s linear; /* Safari */
+    transition: opacity 0.5s linear, margin-top 0.5s linear;
+  }
+
+  .loading h1, .loading h2 {
+    margin-top: 0px;
+    opacity: 0;
+  }
+
+  .go-back-link {
+    color: $bg-color-wine;
+  }
+}

@@ -1,0 +1,43 @@
+@import "src/styles/colors";
+
+.stepper-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 36px 24px;
+
+  .stepper-circle {
+    border-radius: 50%;
+    height: 24px;
+    width: 24px;
+    font-size: 14px;
+    line-height: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 24px;
+    background-color: $cdmx-light-gray;
+    color: $cdmx-gray;
+    border: 1px solid $bg-color-wine;
+
+    &.active {
+      background-color: $bg-color-wine;
+      color: white;
+    }
+  }
+
+  .stepper-line {
+    height: 2px;
+    flex: 0 1 100%;
+    background-color: $bg-color-gray;
+
+    &.active {
+      background-color: $bg-color-wine;
+    }
+
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
