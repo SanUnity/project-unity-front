@@ -53,7 +53,7 @@ class Confirmation extends Component {
   checkTime = () => {
     const { start } = this.state;
     const now = new Date().getTime();
-    const compare = start + (1000 * 60 * 5); // 5min
+    const compare = start + 1000 * 60 * 5; // 5min
 
     if (now > compare) {
       this.setState({
@@ -61,24 +61,25 @@ class Confirmation extends Component {
       });
       clearInterval(this.interval);
     }
-  }
-
-  prefillOTP = () => {
-    const {
-      signupData: { otp },
-    } = this.props;
-    if (otp) {
-      const numbers = `${otp}`.split('');
-      this.setState(
-        {
-          numbers,
-        },
-        () => {
-          this.validateForm();
-        },
-      );
-    }
   };
+
+  // not used
+  // prefillOTP = () => {
+  //   const {
+  //     signupData: { otp },
+  //   } = this.props;
+  //   if (otp) {
+  //     const numbers = `${otp}`.split('');
+  //     this.setState(
+  //       {
+  //         numbers,
+  //       },
+  //       () => {
+  //         this.validateForm();
+  //       },
+  //     );
+  //   }
+  // };
 
   focusInput = (index) => {
     const inputs = document.querySelectorAll('.pa_g-login input');
@@ -216,7 +217,7 @@ class Confirmation extends Component {
       this.setState({ error: true });
       showLoading(false);
     }
-  }
+  };
 
   render() {
     const {
@@ -243,7 +244,9 @@ class Confirmation extends Component {
 
     if (backError) {
       if (backError.next) {
-        showError = `${literals.maxRetriesExceeded} ${getTimeLeft(backError.next)}`;
+        showError = `${literals.maxRetriesExceeded} ${getTimeLeft(
+          backError.next,
+        )}`;
       } else {
         showError = literals.codeError;
       }
@@ -255,7 +258,11 @@ class Confirmation extends Component {
           <div className='container-fluid'>
             <div className='row'>
               <div className='col-12 welcome img-te_xt-login'>
-                <img src='/assets/images/green-arrow.svg' onClick={initSignup} alt='' />
+                <img
+                  src='/assets/images/green-arrow.svg'
+                  onClick={initSignup}
+                  alt=''
+                />
                 <h4>{literals.welcome}</h4>
               </div>
               {/* <div className='col-12'>
@@ -298,7 +305,9 @@ class Confirmation extends Component {
                   <p className='l_l'>{literals.hint}</p>
                   {again && (
                     <div className='ask-again-wrapper'>
-                      <p onClick={initSignup} className='ask-again'>{literals.askAgain}</p>
+                      <p onClick={initSignup} className='ask-again'>
+                        {literals.askAgain}
+                      </p>
                       <Button
                         onClick={this.handleSubmitAnonymous}
                         label={literals.enterAsAnonymous}

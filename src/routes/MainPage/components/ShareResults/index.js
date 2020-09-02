@@ -165,7 +165,6 @@ class ShareResults extends Component {
 
       arrayLetters.forEach((letter) => {
         const contactsByLeter = contactsList.filter(c => c.name[0].toUpperCase() === letter);
-
         if (contactsByLeter.length) {
           finalList[letter] = contactsByLeter.sort((a, b) => (a.name > b.name ? 1 : -1));
         }

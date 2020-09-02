@@ -42,12 +42,11 @@ const FormContainer = ({ children, onSubmit }) => {
 
 FormContainer.propTypes = {
   children: PropTypes.element,
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 FormContainer.defaultProps = {
   children: null,
-  onSubmit: () => {},
 };
 
 export default wrapper;

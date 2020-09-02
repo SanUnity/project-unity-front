@@ -22,7 +22,6 @@ class Timer extends Component {
     this.max = maxTime * 60 * 60;
     const now = Math.floor(new Date().getTime() / 1000);
     let distance = now - this.timestamp;
-
     if (distance < 0) {
       distance = 0;
       this.timestamp = now;

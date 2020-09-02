@@ -38,7 +38,7 @@ class Request extends Component {
                 <Timer
                   timestamp={request.timestamp}
                   maxTime={MAX_REQUEST_TIME}
-                  DoneContent={() => (
+                  DoneContent={/* istanbul ignore next */() => (
                     <p>{literals.test2.requestExpired}</p>
                   )}
                 />

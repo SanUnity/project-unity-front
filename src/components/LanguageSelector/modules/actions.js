@@ -1,10 +1,5 @@
-import {
-  loadingAction,
-} from '../../../store/globalState/global';
-
-import {
-  SET_PLATFORM_LANGUAGE,
-} from './types';
+import { loadingAction } from '../../../store/globalState/global';
+import { SET_PLATFORM_LANGUAGE } from './types';
 
 export function setPlatformLanguage(lang) {
   return {

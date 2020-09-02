@@ -71,39 +71,39 @@ export function submitTest(data, formTestConf) {
       profileData.suburb = postalCodeSelectedData.suburb;
     }
 
-    apiFetch({
-      method: 'PUT',
-      url: `${API_URLS.userProfile}/${profileID}`,
-      params: profileData,
-    }).then((editedProfile) => {
-      apiFetch({
+    try {
+      const editedProfile = await apiFetch({
+        method: 'PUT',
+        url: `${API_URLS.userProfile}/${profileID}`,
+        params: profileData,
+      });
+
+      const testResult = await apiFetch({
         method: 'POST',
         url: `${API_URLS.userProfile}/${profileID}/tests`,
         params: answers,
-      }).then((testResult) => {
-        sessionService.saveUser({
-          ...user,
-          profiles: profiles.map((profile) => {
-            if (profile.id === profileID) return { ...profile, ...editedProfile, ...testResult };
-            return profile;
-          }),
-        });
-
-        if (testResult.level === TEST_RESUL_HIGH) {
-          // eslint-disable-next-line
-          sendTraceData();
-        }
-
-        // remove local objects on successful submission
-        localStorage.removeItem('profile');
-        localStorage.removeItem('postalCodeData');
-
-        dispatch({ type: RESULTS_AQUIRED, payload: testResult });
-      }).catch((error) => {
-        console.error(error);
       });
-    }).catch((error) => {
-      console.error(error);
-    });
+
+      sessionService.saveUser({
+        ...user,
+        profiles: profiles.map((profile) => {
+          if (profile.id === profileID) return { ...profile, ...editedProfile, ...testResult };
+          return profile;
+        }),
+      });
+
+      if (testResult.level === TEST_RESUL_HIGH) {
+        // eslint-disable-next-line
+        sendTraceData();
+      }
+
+      await dispatch({ type: RESULTS_AQUIRED, payload: testResult });
+
+      // remove local objects on successful submission
+      localStorage.removeItem('profile');
+      localStorage.removeItem('postalCodeData');
+    // eslint-disable-next-line no-empty
+    } catch (error) {
+    }
   };
 }

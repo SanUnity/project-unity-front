@@ -1,21 +1,25 @@
-import EN from 'i18n/EN';
-import i18nReducer from '../modules';
+import React from 'react';
+import { shallow } from 'enzyme';
+import LanguageSelector from '../components';
 
-const param = {
-  type: 'SET_PLATFORM_LANGUAGE',
-  payload: 'es',
+// don't care about HOC logic
+jest.mock('..', () => <></>);
+
+const props = {
+  setLanguage: jest.fn(),
 };
 
-const INITIAL_LANG_CONF = {
-  language: 'en',
-  literals: EN.en,
-};
+let wrapper;
 
+beforeAll(() => {
+  wrapper = shallow(<LanguageSelector {...props} />);
+});
 
-it('changes language', () => {
-  expect(i18nReducer(INITIAL_LANG_CONF, param)).not.toEqual(INITIAL_LANG_CONF);
+it('renders', () => {
+  expect(wrapper.exists()).toBeTruthy();
+});
 
-  param.type = 'TYPE_THAT_DOESNT_EXIST';
-
-  expect(i18nReducer(INITIAL_LANG_CONF, param)).toEqual(INITIAL_LANG_CONF);
+it('triggers `setLanguage` upon clicking on a language image', () => {
+  wrapper.find('img').first().simulate('click', {});
+  expect(props.setLanguage).toHaveBeenCalledTimes(1);
 });

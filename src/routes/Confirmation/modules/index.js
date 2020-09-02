@@ -2,7 +2,7 @@ import initialState from '../../../store/globalState/initialState';
 
 import { PHONE_VALIDATION_INIT, PHONE_VALIDATION_SUCCESS, PHONE_VALIDATION_FAILURE } from './types';
 
-export default function phoneValidationReducer(state = initialState.signup, action) {
+export default function phoneValidationReducer(state = initialState.validation, action) {
   switch (action.type) {
     case PHONE_VALIDATION_INIT:
     case PHONE_VALIDATION_SUCCESS:

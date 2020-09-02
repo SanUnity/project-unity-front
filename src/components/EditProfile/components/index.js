@@ -123,6 +123,7 @@ export default class EditProfile extends React.Component {
       showLoading(true);
       dataInfo.stateID = currentState;
 
+      /* istanbul ignore next: else of this if can never happen, this block is entered when error */
       if (postalCodeSelectedData) {
         dataInfo.state = postalCodeSelectedData.state;
         dataInfo.municipality = postalCodeSelectedData.municipality;

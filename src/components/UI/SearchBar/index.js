@@ -8,9 +8,7 @@ import PropTypes from 'prop-types';
  * @param {string}  label
  * @param {array} listItems
  * @param {array} filters
- * @param {func}  searchInitiated
  * @param {func} itemSelected
- * @param {func} filterSelected
  *
  * @returns {JSX}
  */
@@ -18,6 +16,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   static propTypes = {
     placeholder: PropTypes.string.isRequired,
+    // eslint-disable-next-line react/no-unused-prop-types
     itemSelected: PropTypes.func,
     initialValue: PropTypes.string,
     onChange: PropTypes.func,
@@ -77,12 +76,12 @@ class SearchBar extends Component {
     this.searchActive = false;
   };
 
-  onClickItem = (item, index) => {
-    const { itemSelected } = this.props;
-    this.closeSearchDropdown();
-    this.setState({ inputValue: item.title });
-    itemSelected(index);
-  };
+  // onClickItem = (item, index) => {
+  //   const { itemSelected } = this.props;
+  //   this.closeSearchDropdown();
+  //   this.setState({ inputValue: item.title });
+  //   itemSelected(index);
+  // };
 
   render() {
     const { placeholder, onShowFilters } = this.props;

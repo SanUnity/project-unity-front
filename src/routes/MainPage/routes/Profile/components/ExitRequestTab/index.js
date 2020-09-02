@@ -112,7 +112,7 @@ class ExitRequestTab extends Component {
               <Timer
                 timestamp={exitRequest.timestamp}
                 maxTime={24}
-                DoneContent={() => (
+                DoneContent={/* istanbul ignore next */() => (
                   <p>{literals.expired}</p>
                 )}
               />
@@ -150,7 +150,7 @@ class ExitRequestTab extends Component {
               </div>
             </div>
           </div>
-          {modalActive ? <ModalExitRequest profile={profile} showLoading={showLoading} literals={literals} close={() => this.setState({ modalActive: false })} /> : ''}
+          {modalActive ? <ModalExitRequest profile={profile} showLoading={showLoading} literals={literals} close={/* istanbul ignore next */() => this.setState({ modalActive: false })} /> : ''}
         </div>
       );
     }
@@ -162,10 +162,10 @@ class ExitRequestTab extends Component {
         </Slider>
         <p className='footer-text'>{literals.showQR}</p>
         {modalActive ? (
-          <ModalExitRequest literals={literals} profile={profile} showLoading={showLoading} close={() => this.setState({ modalActive: false })} />
+          <ModalExitRequest literals={literals} profile={profile} showLoading={showLoading} close={/* istanbul ignore next */() => this.setState({ modalActive: false })} />
         ) : ''}
         {modalDeleteId !== '' ? (
-          <ModalConfirm title={literals.modalDeleteTitle} cancelText={literals.modalDeleteCancel} confirmText={literals.modalDeleteConfirm} cancel={() => this.setState({ modalDeleteId: '' })} confirm={() => this.deleteExitRequest(modalDeleteId)} />
+          <ModalConfirm title={literals.modalDeleteTitle} cancelText={literals.modalDeleteCancel} confirmText={literals.modalDeleteConfirm} cancel={/* istanbul ignore next */() => this.setState({ modalDeleteId: '' })} confirm={/* istanbul ignore next */() => this.deleteExitRequest(modalDeleteId)} />
         ) : ''}
       </div>
     );

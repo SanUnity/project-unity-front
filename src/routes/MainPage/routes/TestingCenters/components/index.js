@@ -1,3 +1,4 @@
+/* eslint-disable no-empty */
 /* eslint-disable no-param-reassign */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -18,25 +19,6 @@ const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
 const MEXICO_LAT = 19.3467007;
 const MEXICO_LNG = -99.1617432;
 
-
-function debounce(func, wait, isImmediate = false) {
-  let timeout;
-  return (...args) => {
-    const later = () => {
-      timeout = null;
-      if (!isImmediate) {
-        func(...args);
-      }
-    };
-    const callNow = isImmediate && !timeout;
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-    if (callNow) {
-      func(...args);
-    }
-  };
-}
-
 /**
  * @name TestingCenters
  *
@@ -56,18 +38,6 @@ class TestingCenters extends Component {
 
   mapRef = null;
 
-  searchInitiated = debounce((searchString) => {
-    const { listItems } = this.state;
-    const filteredArray = listItems.filter((item) => {
-      return (
-        item.title.toLowerCase().includes(searchString.toLowerCase())
-        || item.description.toLowerCase().includes(searchString.toLowerCase())
-      );
-    });
-    this.setState({ filteredItems: filteredArray });
-    this.mapComponent.drawMarkers();
-  }, 400);
-
   constructor(props) {
     super(props);
     const { location: { testingCenters = {} } } = props;
@@ -76,7 +46,6 @@ class TestingCenters extends Component {
       currentActiveTabIndex: 1,
       itemIndexToRenderInModal: 0,
       listItems: [],
-      filteredItems: [],
       modalActive: false,
       clientLat: '', // default to Mexico
       clientLng: '', // default to Mexico
@@ -98,9 +67,8 @@ class TestingCenters extends Component {
   componentDidMount() {
     // client navigates back via browser to close modal
     window.addEventListener('popstate', this.closeModalWrapper);
-    const { states } = this.state;
 
-    if (!states.length) this.fetchStates();
+    this.fetchStates();
 
     const { showLoading } = this.props;
     showLoading(true);
@@ -168,7 +136,7 @@ class TestingCenters extends Component {
 
     const { saveLocation } = this.props;
     const {
-      listItems, filteredItems, clientLat, clientLng,
+      listItems, clientLat, clientLng,
       hospitals,
       hospitalsSearch,
       states,
@@ -184,7 +152,6 @@ class TestingCenters extends Component {
       saveLocation({
         testingCenters: {
           listItems,
-          filteredItems,
           clientLat,
           clientLng,
           term,
@@ -228,7 +195,8 @@ class TestingCenters extends Component {
     let hospitalsFiltered = [];
     res.map((hospital) => {
       hospital.distance = '';
-
+      /** clientLat & clientLng are never defined, thus this condition is never true */
+      /* istanbul ignore next */
       if (google && clientLat && clientLng && hospital.location.lat && hospital.location.lon) {
         const myLatLng1 = new google.maps.LatLng({ lat: Number(clientLat), lng: Number(clientLng) });
         const myLatLng2 = new google.maps.LatLng({ lat: Number(hospital.location.lat), lng: Number(hospital.location.lon) });
@@ -257,23 +225,21 @@ class TestingCenters extends Component {
       return 0;
     });
 
-    if (levelSelected) {
-      switch (levelSelected) {
-        case '1':
-          hospitalsSearch = hospitalsSearch.filter(h => h.hospital.level === 1);
-          hospitalsFiltered = hospitalsFiltered.filter(h => h.level === 1);
-          break;
-        case '2':
-          hospitalsSearch = hospitalsSearch.filter(h => (h.hospital.level === 2 || h.hospital.level === 3));
-          hospitalsFiltered = hospitalsFiltered.filter(h => (h.level === 2 || h.level === 3));
-          break;
-        case '3':
-          hospitalsSearch = hospitalsSearch.filter(h => h.hospital.covid);
-          hospitalsFiltered = hospitalsFiltered.filter(h => h.covid);
-          break;
-
-        default: break;
-      }
+    switch (levelSelected.toString()) {
+      case '1':
+        hospitalsSearch = hospitalsSearch.filter(h => h.hospital.level === 1);
+        hospitalsFiltered = hospitalsFiltered.filter(h => h.level === 1);
+        break;
+      case '2':
+        hospitalsSearch = hospitalsSearch.filter(h => (h.hospital.level === 2 || h.hospital.level === 3));
+        hospitalsFiltered = hospitalsFiltered.filter(h => (h.level === 2 || h.level === 3));
+        break;
+      case '3':
+        hospitalsSearch = hospitalsSearch.filter(h => h.hospital.covid);
+        hospitalsFiltered = hospitalsFiltered.filter(h => h.covid);
+        break;
+        /* istanbul ignore next */
+      default: break;
     }
 
     this.setState({ hospitalsSearch, hospitalsFiltered }, () => {
@@ -281,11 +247,12 @@ class TestingCenters extends Component {
     });
   }
 
-  fetchStates = () => {
-    apiFetch({
-      method: 'GET',
-      url: `${API_URLS.states}`,
-    }).then((data) => {
+  fetchStates = async () => {
+    try {
+      const data = await apiFetch({
+        method: 'GET',
+        url: `${API_URLS.states}`,
+      });
       const states = [];
       data.map((state) => {
         state.value = state.id;
@@ -297,16 +264,16 @@ class TestingCenters extends Component {
         return state;
       });
       this.setState({ states });
-    }).catch((error) => {
-      console.error(error);
-    });
+    } catch (error) {}
   }
 
-  fetchMunicipalities = (stateID) => {
-    apiFetch({
-      method: 'GET',
-      url: `${API_URLS.statesMunicipalities(stateID)}`,
-    }).then((data) => {
+  fetchMunicipalities = async (stateID) => {
+    try {
+      const data = await apiFetch({
+        method: 'GET',
+        url: `${API_URLS.statesMunicipalities(stateID)}`,
+      });
+
       const municipalities = [];
       data.map((municipality) => {
         municipalities.push({
@@ -317,40 +284,40 @@ class TestingCenters extends Component {
         this.setState({ municipalities });
         return municipality;
       });
-    }).catch((error) => {
-      console.error(error);
-    });
+    } catch (error) {}
   }
 
-  fetchHospitals = (stateID, municipalityID) => {
+  fetchHospitals = async (stateID, municipalityID) => {
     const { showLoading } = this.props;
     showLoading(true);
-    apiFetch({
-      method: 'GET',
-      url: `${API_URLS.statesMunicipalitiesHospitals(stateID, municipalityID)}`,
-    }).then((data) => {
+    try {
+      const data = await apiFetch({
+        method: 'GET',
+        url: `${API_URLS.statesMunicipalitiesHospitals(stateID, municipalityID)}`,
+      });
+
       showLoading(false);
       this.setState({ hospitals: data, hospitalsSearch: data });
-    }).catch((error) => {
+    } catch (error) {
+    } finally {
       showLoading(false);
-      console.error(error);
-    });
+    }
   }
 
-  fetchInfoWithPc = (pc) => {
-    apiFetch({
-      method: 'GET',
-      url: `${API_URLS.postalCodes(pc)}`,
-    }).then((data) => {
+  fetchInfoWithPc = async (pc) => {
+    try {
+      const data = await apiFetch({
+        method: 'GET',
+        url: `${API_URLS.postalCodes(pc)}`,
+      });
+
       if (data.length) {
         this.setState({
           municipalitySelected: data[0].municipalityID,
           stateSelected: data[0].stateID,
         });
       }
-    }).catch((error) => {
-      console.error(error);
-    });
+    } catch (error) { }
   }
 
   loadMap = async () => {
@@ -367,7 +334,7 @@ class TestingCenters extends Component {
       if (profiles.length > 0 && profiles[0].postalCode) {
         userCp = profiles[0].postalCode;
       }
-    } catch (error) { console.error(error); }
+    } catch (error) { }
 
     this.setState({ pcDetected: userCp }, () => {
       this.drawMap();
@@ -389,19 +356,6 @@ class TestingCenters extends Component {
   closeModal = () => {
     this.setState({ modalActive: false });
   };
-
-  renderLevel = (level) => {
-    const {
-      literals,
-    } = this.props;
-
-    switch (level) {
-      case 1: return <span className='level firstLevel'>{literals.level1}</span>;
-      case 2: return <span className='level secondLevel'>{literals.level2}</span>;
-      case 3: return <span className='level thirdLevel'>{literals.level3}</span>;
-      default: return <span />;
-    }
-  }
 
   renderLevelDetails = (level, isCovid) => {
     const {
@@ -519,22 +473,6 @@ class TestingCenters extends Component {
         </div>
       </React.Fragment>
     );
-  };
-
-  filterSelected = (index) => {
-    const { listItems } = this.state;
-    const { literals } = this.props;
-
-    const filterObj = Object.values(literals.filters)[index];
-
-    if (filterObj.googleKey === '') {
-      this.setState({ filteredItems: listItems });
-    } else {
-      const filteredArray = listItems.filter((item) => {
-        return item.types.includes(filterObj.googleKey);
-      });
-      this.setState({ filteredItems: filteredArray });
-    }
   };
 
   drawMap = async () => {
@@ -655,9 +593,7 @@ class TestingCenters extends Component {
                 this.createHospitalsSearch();
               });
             }}
-            searchInitiated={this.searchInitiated}
             filters={searchComponentFilters}
-            filterSelected={this.filterSelected}
             itemSelected={this.itemSelected}
             listItems={hospitalsSearch}
           />

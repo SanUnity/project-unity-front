@@ -38,7 +38,6 @@ class ModalExitRequest extends Component {
       const { profiles } = session;
       const profilesToEdit = [...profiles];
       const position = profilesToEdit.findIndex(p => p.id === profile.id);
-
       if (typeof profilesToEdit[position].exitRequests === 'undefined') {
         profilesToEdit[position].exitRequests = [];
       }

@@ -27,6 +27,15 @@ import Content from './Content';
  * @returns {JSX}
  */
 
+const testMap = {
+  [TEST_RESUL_LOW]: 'GOOD',
+  [TEST_RESUL_MEDIUM_LOW]: 'MEDIUM_LOW',
+  [TEST_RESUL_MEDIUM]: 'MEDIUM',
+  [TEST_RESUL_MEDIUM_HIGH]: 'MEDIUM_HIGH',
+  [TEST_RESUL_MEDIUM_VULNERABLE]: 'MEDIUM_VULNERABLE',
+  [TEST_RESUL_HIGH]: 'MEDIUM_VULNERABLE',
+};
+
 class Results extends Component {
   static propTypes = {
     literals: PropTypes.object.isRequired,
@@ -168,14 +177,7 @@ class Results extends Component {
     }
   }
 
-  getStatus = (result) => {
-    if (result.level === TEST_RESUL_LOW) this.setState({ currentLevel: 'GOOD' });
-    if (result.level === TEST_RESUL_MEDIUM_LOW) this.setState({ currentLevel: 'MEDIUM_LOW' });
-    if (result.level === TEST_RESUL_MEDIUM) this.setState({ currentLevel: 'MEDIUM' });
-    if (result.level === TEST_RESUL_MEDIUM_HIGH) this.setState({ currentLevel: 'MEDIUM_HIGH' });
-    if (result.level === TEST_RESUL_MEDIUM_VULNERABLE) this.setState({ currentLevel: 'MEDIUM_VULNERABLE' });
-    if (result.level === TEST_RESUL_HIGH) this.setState({ currentLevel: 'BAD' });
-  }
+  getStatus = result => this.setState({ currentLevel: testMap[(result || {}).level] })
 
   canShareApp = () => {
     // eslint-disable-next-line
@@ -195,75 +197,74 @@ class Results extends Component {
       stateListItems, currentLevel, data, redirectTests,
     } = this.state;
     if (redirectTests) return <Redirect to={`${PARENT_ROUTE_PATH.MAIN_PAGE}${ROUTE_PATH.TEST}`} />;
-    if (currentLevel !== '') {
-      return (
-        <React.Fragment>
-          <ScrollToTopOnMount />
-          <section className='test-abb'>
-            {!simple && (
-              <div className='container-fluid'>
-                <div className='row'>
-                  <div className='col-12'>
-                    <div className='fixed-header'>
-                      <ComponentHeader
-                        title={literals.componentTitle}
-                        leftIconSrc='/assets/images/Close.svg'
-                        leftIconClicked={() => route.push(
-                          `${PARENT_ROUTE_PATH.MAIN_PAGE}${ROUTE_PATH.TEST}`,
-                          null,
-                        )}
-                      />
-                    </div>
-                    <div className='text-center result-main-img mt-4'>
-                      <img
-                        src={data[currentLevel].img}
-                        alt=''
-                      />
-                    </div>
+    if (!currentLevel) return null;
+
+    return (
+      <React.Fragment>
+        <ScrollToTopOnMount />
+        <section className='test-abb'>
+          {!simple && (
+            <div className='container-fluid'>
+              <div className='row'>
+                <div className='col-12'>
+                  <div className='fixed-header'>
+                    <ComponentHeader
+                      title={literals.componentTitle}
+                      leftIconSrc='/assets/images/Close.svg'
+                      leftIconClicked={() => route.push(
+                        `${PARENT_ROUTE_PATH.MAIN_PAGE}${ROUTE_PATH.TEST}`,
+                        null,
+                      )}
+                    />
+                  </div>
+                  <div className='text-center result-main-img mt-4'>
+                    <img
+                      src={data[currentLevel].img}
+                      alt=''
+                    />
                   </div>
                 </div>
               </div>
-            )}
-          </section>
-          <Content
-            route={route}
-            literals={literals}
-            result={result}
-            listItems={stateListItems}
-            data={data[currentLevel]}
-            modal={modal}
-          />
-          {(!simple && this.canShareApp()) && (
-            <React.Fragment>
-              <img
-                className='tria'
-                src='/assets/images/results/Triangles.svg'
-                alt=''
-              />
-              <section className='toda-last'>
-                <div className='container-fluid'>
-                  <div className='row'>
-                    <div className='col-12'>
-                      <div className='toda-last-txt'>
-                        <h4>{literals.footerTitle}</h4>
-                        <p>{literals.footerSubtitle}</p>
-                        <div className='last-ho' onClick={this.shareApp}>
-                          <div className='h-id'>
-                            <img src='/assets/images/results/ho.svg' alt='' />
-                          </div>
-                          <p>{literals.footerOpenTitle}</p>
+            </div>
+          )}
+        </section>
+        <Content
+          route={route}
+          literals={literals}
+          result={result}
+          listItems={stateListItems}
+          data={data[currentLevel]}
+          modal={modal}
+        />
+        {(!simple && this.canShareApp()) && (
+          <React.Fragment>
+            <img
+              className='tria'
+              src='/assets/images/results/Triangles.svg'
+              alt=''
+            />
+            <section className='toda-last'>
+              <div className='container-fluid'>
+                <div className='row'>
+                  <div className='col-12'>
+                    <div className='toda-last-txt'>
+                      <h4>{literals.footerTitle}</h4>
+                      <p>{literals.footerSubtitle}</p>
+                      <div className='last-ho' onClick={this.shareApp}>
+                        <div className='h-id'>
+                          <img src='/assets/images/results/ho.svg' alt='' />
                         </div>
+                        <p>{literals.footerOpenTitle}</p>
                       </div>
                     </div>
                   </div>
                 </div>
-              </section>
-            </React.Fragment>
-          )}
-        </React.Fragment>
-      );
-    }
-    return <React.Fragment />;
+              </div>
+            </section>
+          </React.Fragment>
+        )}
+      </React.Fragment>
+    );
   }
 }
 

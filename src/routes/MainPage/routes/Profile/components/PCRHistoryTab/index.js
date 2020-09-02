@@ -20,7 +20,7 @@ class PCRHistoryTab extends Component {
     const { profile } = this.props;
 
     this.setState({
-      arrayTests: profile.pcr || [],
+      arrayTests: profile.pcr || /* istanbul ignore next: this can not happen, component would throw an error */[],
       loaded: true,
     });
   }
@@ -37,7 +37,7 @@ class PCRHistoryTab extends Component {
     const { profile } = this.props;
 
     this.setState({
-      arrayTests: profile.pcr || [],
+      arrayTests: profile.pcr || /* istanbul ignore next: this can not happen, component would throw an error */[],
     });
   }
 

@@ -41,7 +41,6 @@ class FormTest extends React.Component {
     }
 
     const { formTestConf } = props;
-
     this.steps = formTestConf.reduce((acc, subSteps) => {
       const arraySubRoutes = [];
 
@@ -84,11 +83,12 @@ class FormTest extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      result,
-      showLoading,
-    } = this.props;
-    if (JSON.stringify(result) !== JSON.stringify(prevProps.result) && result.id && result.id !== '') {
+    const { result, showLoading } = this.props;
+    if (
+      JSON.stringify(result) !== JSON.stringify(prevProps.result)
+      && result.id
+      && result.id !== ''
+    ) {
       showLoading(false);
       localStorage.removeItem('testDetails');
       history.push('/results', null);
@@ -103,13 +103,6 @@ class FormTest extends React.Component {
       params: data,
     });
   };
-
-  getProfile = (id) => {
-    return apiFetch({
-      method: 'GET',
-      url: `${API_URLS.userProfile}/${id}`,
-    });
-  }
 
   handleSubmit = async () => {
     const { data } = this.state;
@@ -128,12 +121,7 @@ class FormTest extends React.Component {
     }
   };
 
-  createHome = ({ municipality, state }) => {
-    let res = '';
-    if (municipality !== '') res = `${municipality}`;
-    if (state !== '') res += `${res !== '' ? ', ' : ''}${state}`;
-    return res;
-  }
+  createHome = ({ municipality, state }) => [municipality, state].filter(Boolean).join(', ');
 
   handlePageChange = async () => {
     const {
@@ -157,33 +145,43 @@ class FormTest extends React.Component {
 
           if (!postalCodeData.length) {
             showLoading(false);
-            this.setState({
-              currentStep: currentStep - 1,
-              stepsCounter: stepsCounter - 1,
-              pcError: literals.postalCodeError,
-            }, () => {
-              setTimeout(() => {
-                this.setState({ pcError: '' });
-              }, 4000);
-            });
+            this.setState(
+              {
+                currentStep: currentStep - 1,
+                stepsCounter: stepsCounter - 1,
+                pcError: literals.postalCodeError,
+              },
+              () => {
+                setTimeout(() => {
+                  this.setState({ pcError: '' });
+                }, 4000);
+              },
+            );
             return;
           }
         } catch (err) {
           showLoading(false);
-          this.setState({
-            currentStep: currentStep - 1,
-            stepsCounter: stepsCounter - 1,
-            pcError: literals.postalCodeError,
-          }, () => {
-            setTimeout(() => {
-              this.setState({ pcError: '' });
-            }, 4000);
-          });
+          this.setState(
+            {
+              currentStep: currentStep - 1,
+              stepsCounter: stepsCounter - 1,
+              pcError: literals.postalCodeError,
+            },
+            () => {
+              setTimeout(() => {
+                this.setState({ pcError: '' });
+              }, 4000);
+            },
+          );
           return;
         }
 
         try {
-          const profile = await this.createProfile({ ...data, ...postalCodeData[0] });
+          const profile = await this.createProfile({
+            ...data,
+            ...postalCodeData[0],
+          });
+
           data.home = this.createHome(postalCodeData[0]);
           showLoading(false);
           localStorage.setItem('profile', JSON.stringify(profile));
@@ -192,20 +190,30 @@ class FormTest extends React.Component {
 
           sessionService.saveUser({
             ...user,
-            profiles: [{
-              ...profile, ...data, ...postalCodeData[0], isDefault, pcr: [],
-            }, ...profiles],
+            profiles: [
+              {
+                ...profile,
+                ...data,
+                ...postalCodeData[0],
+                isDefault,
+                pcr: [],
+              },
+              ...profiles,
+            ],
           });
         } catch (err) {
           showLoading(false);
-          this.setState({
-            currentStep: currentStep - 1,
-            pcError: literals.createProfileError,
-          }, () => {
-            setTimeout(() => {
-              this.setState({ pcError: '' });
-            }, 4000);
-          });
+          this.setState(
+            {
+              currentStep: currentStep - 1,
+              pcError: literals.createProfileError,
+            },
+            () => {
+              setTimeout(() => {
+                this.setState({ pcError: '' });
+              }, 4000);
+            },
+          );
           return;
         }
       }
@@ -299,7 +307,9 @@ class FormTest extends React.Component {
 
     if (currentStep > 1) {
       const newStep = this.substepsMap[stepsCounter - 1];
-      const newSubstep = newStep !== currentStep ? this.steps[newStep].length : currentSubstep - 1;
+      const newSubstep = newStep !== currentStep
+        ? this.steps[newStep].length
+        : currentSubstep - 1;
 
       if (newStep > 1) {
         this.setState(
@@ -330,40 +340,26 @@ class FormTest extends React.Component {
     localStorage.removeItem('profile');
     localStorage.removeItem('postalCodeData');
     localStorage.removeItem('testDetails');
-  }
+  };
 
   checkType = (primaryData) => {
     const { data: stateData } = this.state || {};
     const data = primaryData || stateData;
 
     let type = '';
-    let evaluation1 = 0;
-    let evaluation2 = 0;
 
-    Object.keys(data).forEach((q) => {
-      switch (q) {
-        case 'fever':
-        case 'headache':
-        case 'cough':
-          if (data[q] === 'yes') {
-            evaluation1 += 1;
-          }
-          break;
+    const reduceYeses = (acc, key) => acc + (data[key] === 'yes' ? 1 : 0);
 
-        case 'chestPain':
-        case 'throatPain':
-        case 'snot':
-        case 'pain':
-        case 'conjunctivitis':
-        case 'breathing':
-          if (data[q] === 'yes') {
-            evaluation2 += 1;
-          }
-          break;
-        default:
-          break;
-      }
-    });
+    const evaluation1 = ['fever', 'headache', 'cough'].reduce(reduceYeses, 0);
+
+    const evaluation2 = [
+      'chestPain',
+      'throatPain',
+      'snot',
+      'pain',
+      'conjunctivitis',
+      'breathing',
+    ].reduce(reduceYeses, 0);
 
     if (evaluation1 >= 2 && evaluation2 >= 1) {
       type = TYPE_LIGHT;
@@ -379,11 +375,11 @@ class FormTest extends React.Component {
 
   getTitleByCurrentStep = () => {
     const { formTestConf, literals } = this.props;
-    const {
-      currentStep, currentSubstep,
-    } = this.state;
+    const { currentStep, currentSubstep } = this.state;
 
-    return literals.stepsTitles[formTestConf[currentStep][currentSubstep].title];
+    return literals.stepsTitles[
+      formTestConf[currentStep][currentSubstep].title
+    ];
   };
 
   determineStepFromRoute() {
@@ -436,9 +432,14 @@ class FormTest extends React.Component {
         }}
         className='form-test'
       >
-        <div id='snackbar' className={`snackbar ${pcError !== '' ? 'show' : ''}`}>
+        <div
+          id='snackbar'
+          className={`snackbar ${pcError !== '' ? 'show' : ''}`}
+        >
           <Warning />
-          <div className='snackbar__text'>{pcError !== '' ? pcError : literals.snackbar}</div>
+          <div className='snackbar__text'>
+            {pcError !== '' ? pcError : literals.snackbar}
+          </div>
         </div>
         <header>
           <ComponentHeader

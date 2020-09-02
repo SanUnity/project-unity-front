@@ -63,6 +63,7 @@ class SelectStateModal extends Component {
       params: { state: stateSelected },
     }).then(async () => {
       const session = await sessionService.loadUser();
+      /* istanbul ignore next */
       const BT_ACTIVE = BT_ACTIVE_FOR_ALL || BT_ACTIVE_STATES.indexOf(stateSelected) >= 0;
 
       session.state = stateSelected;

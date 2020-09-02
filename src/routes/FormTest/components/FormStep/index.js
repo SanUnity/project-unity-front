@@ -27,6 +27,7 @@ const questionValidators = {
 };
 
 const FormStep = () => {
+  /* istanbul ignore next: no need to test a hook */
   const literals = useSelector(state => state.i18n.literals.formTest);
   const {
     nextStep,
@@ -39,7 +40,6 @@ const FormStep = () => {
   const baseQuestions = Object.keys(stepsQuestions).filter(q => typeof stepsQuestions[q].if === 'undefined');
   const dependantQuestions = Object.keys(stepsQuestions).filter(q => typeof stepsQuestions[q].if !== 'undefined');
   const dependencies = {};
-
   dependantQuestions.forEach((d) => {
     Object.keys(stepsQuestions[d].if).forEach((dq) => {
       dependencies[dq] = {

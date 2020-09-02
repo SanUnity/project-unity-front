@@ -5,7 +5,7 @@ const history = createBrowserHistory({
   basename: '/',
 });
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'production' && process.env.REACT_APP_GA !== '') {
   ReactGA.initialize(process.env.REACT_APP_GA);
 
   history.listen((location) => {

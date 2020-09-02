@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import leftIconSrc from './green-arrow.svg';
-import profileSrc from './profile.svg';
+
 /**
  * @name WideToggle
  *
@@ -33,7 +32,7 @@ const WideToggle = ({
         {showArrowBack && (
           <img
             className='tst-abb tst-a'
-            src={leftIconSrc}
+            src='/assets/images/green-arrow.svg'
             style={{ marginBottom: '0.5rem' }}
             alt=''
             onClick={goBack}
@@ -43,7 +42,7 @@ const WideToggle = ({
         {showProfile && (
           <img
             className='tst-abb tst-a'
-            src={profileSrc}
+            src='/assets/images/profile.svg'
             style={{ marginBottom: '0.5rem' }}
             alt=''
             onClick={goProfile}
@@ -104,8 +103,8 @@ WideToggle.defaultProps = {
   thirdLabel: '',
   showArrowBack: false,
   showProfile: false,
-  goBack: () => console.info('set a function go back'),
-  goProfile: () => console.info('set a function to go to profile'),
+  goBack: () => {},
+  goProfile: () => {},
   showTabs: true,
 };
 

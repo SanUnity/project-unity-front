@@ -6,11 +6,37 @@ const props = {
   name: 'name',
   label: 'label',
   value: false,
-  onChange: jest.fn(),
+  LabelComponent: () => <></>,
 };
 
-const wrapper = shallow(<Checkbox {...props} />);
+describe('Checkbox tests', () => {
+  let wrapper;
 
-it('renders', () => {
-  expect(wrapper.find('label').length).toBe(1);
+  beforeAll(() => {
+    wrapper = shallow(<Checkbox {...props} />);
+  });
+
+  it('renders', () => {
+    expect(wrapper.find('LabelComponent').exists()).toBeTruthy();
+  });
+
+  it('updates state even when no `onChange` prop passed', () => {
+    wrapper.find('input').simulate('change', {
+      target: {
+        checked: true,
+      },
+    });
+  });
+
+  it('triggers onChange prop', () => {
+    props.onChange = jest.fn();
+    wrapper.setProps(props, () => {
+      wrapper.find('input').simulate('change', {
+        target: {
+          checked: true,
+        },
+      });
+      expect(props.onChange).toHaveBeenCalledTimes(1);
+    });
+  });
 });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './styles.css';
 
-class ModalExitRequest extends Component {
+class ModalConfirm extends Component {
     static propTypes = {
       cancel: PropTypes.func.isRequired,
       title: PropTypes.string.isRequired,
@@ -48,4 +48,4 @@ class ModalExitRequest extends Component {
       );
     }
 }
-export default ModalExitRequest;
+export default ModalConfirm;

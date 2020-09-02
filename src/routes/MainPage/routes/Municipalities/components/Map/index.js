@@ -86,7 +86,7 @@ class Map extends Component {
   };
 
   goToLocation = (location) => {
-    const { mapRef } = this.params;
+    const { mapRef } = this.props;
     mapRef.setCenter(location);
     mapRef.setZoom(10);
   };

@@ -12,7 +12,7 @@ import {
   TEST_RESUL_HIGH,
 } from 'constants/tests';
 import history from 'store/history';
-import { ReactComponent as FavoriteIcon } from 'routes/MainPage/icons/favorite_star.svg';
+import FavoriteStar from 'routes/MainPage/icons/FavoriteStar';
 
 const MAX_TEST_TIME = 1 / 60; // 1min
 // const MAX_TEST_TIME = 6; // 6h
@@ -146,7 +146,7 @@ class Profile extends Component {
       >
         <div className='col-12 p-0'>
           {profile.isDefault ? (
-            <FavoriteIcon className='default-profile-icon' />
+            <FavoriteStar className='default-profile-icon' />
           ) : (
             <span className={`status-indicator ${profile.level !== '-' ? `level-${profile.level}` : ''}`} />
           )}

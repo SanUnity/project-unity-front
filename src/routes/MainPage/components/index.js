@@ -9,6 +9,20 @@ import { routes } from '../routes';
 import SelectStateModal from './SelectStateModal';
 import ShareResults from './ShareResults';
 
+const rightSwipesMap = {
+  '/main/centros-de-salud': '/main/news',
+  '/main/news': '/main/faq',
+  '/main/faq': '/main/bt-status',
+  '/main/bt-status': '/main/test',
+};
+
+
+const leftSwipesMap = {
+  '/main/test': '/main/bt-status',
+  '/main/bt-status': '/main/faq',
+  '/main/faq': '/main/news',
+  '/main/news': '/main/centros-de-salud',
+};
 /**
  * @name MainPage
  *
@@ -25,42 +39,14 @@ class MainPage extends Component {
     showLoading: PropTypes.func.isRequired,
   };
 
+  /* istanbul ignore next */
   handleSwipeRight = () => {
-    switch (history.location.pathname) {
-      case '/main/centros-de-salud':
-        history.push('/main/news');
-        break;
-      case '/main/news':
-        history.push('/main/faq');
-        break;
-      case '/main/faq':
-        history.push('/main/bt-status');
-        break;
-      case '/main/bt-status':
-        history.push('/main/test');
-        break;
-      default:
-        break;
-    }
+    history.push(rightSwipesMap[history.location.pathname]);
   }
 
+  /* istanbul ignore next */
   handleSwipeLeft = () => {
-    switch (history.location.pathname) {
-      case '/main/test':
-        history.push('/main/bt-status');
-        break;
-      case '/main/bt-status':
-        history.push('/main/faq');
-        break;
-      case '/main/faq':
-        history.push('/main/news');
-        break;
-      case '/main/news':
-        history.push('/main/centros-de-salud');
-        break;
-      default:
-        break;
-    }
+    history.push(leftSwipesMap[history.location.pathname]);
   }
 
   render() {

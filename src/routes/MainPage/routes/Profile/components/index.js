@@ -41,7 +41,6 @@ class Profile extends Component {
         break;
     }
 
-
     this.state = {
       currentActiveTabIndex,
       loaded: false,
@@ -56,10 +55,8 @@ class Profile extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const {
-      profiles,
-    } = this.props;
-    if ((JSON.stringify(prevProps.profiles) !== JSON.stringify(profiles))) {
+    const { profiles } = this.props;
+    if (JSON.stringify(prevProps.profiles) !== JSON.stringify(profiles)) {
       this.setProfile();
     }
   }
@@ -69,15 +66,13 @@ class Profile extends Component {
   }
 
   setProfile = () => {
-    const {
-      profiles, match,
-    } = this.props;
+    const { profiles, match } = this.props;
 
     this.setState({
       profile: profiles.find(p => p.id === match.params.profileID),
       loaded: true,
     });
-  }
+  };
 
   labelClicked = (index) => {
     this.setState({ currentActiveTabIndex: index });
@@ -89,21 +84,25 @@ class Profile extends Component {
     profile.history = arrayHistory;
 
     this.setState({ profile });
-  }
+  };
 
   showTabContent = () => {
     const {
-      literals, literalsResults, literalsPCR, match, showLoading,
+      literals,
+      literalsResults,
+      literalsPCR,
+      match,
+      showLoading,
     } = this.props;
-    const {
-      currentActiveTabIndex, profile,
-    } = this.state;
+    const { currentActiveTabIndex, profile } = this.state;
 
     switch (currentActiveTabIndex) {
       case 3: {
         let firstRequest;
         if (match.params.requestID && profile.exitRequests) {
-          firstRequest = profile.exitRequests.find(e => e.id === match.params.requestID);
+          firstRequest = profile.exitRequests.find(
+            e => e.id === match.params.requestID,
+          );
         } else if (profile.exitRequests && profile.exitRequests.length) {
           firstRequest = profile.exitRequests[0];
         } else {
@@ -119,29 +118,32 @@ class Profile extends Component {
           />
         );
       }
-      case 1: return (
-        <HealthHistoryTab
-          profile={profile}
-          literals={literalsResults}
-          showLoading={showLoading}
-          onFetchHistory={data => this.setProfileHistory(data)}
-          onShowForm={this.handleShowPCRForm}
-          match={match}
-        />
-      );
+      case 1:
+        return (
+          <HealthHistoryTab
+            profile={profile}
+            literals={literalsResults}
+            showLoading={showLoading}
+            onFetchHistory={/* istanbul ignore next */data => this.setProfileHistory(data)}
+            onShowForm={this.handleShowPCRForm}
+            match={match}
+          />
+        );
 
-      case 2: return (
-        <PCRHistoryTab
-          profile={profile}
-          literals={literalsPCR}
-          showLoading={showLoading}
-          onShowForm={this.handleShowPCRForm}
-        />
-      );
+      case 2:
+        return (
+          <PCRHistoryTab
+            profile={profile}
+            literals={literalsPCR}
+            showLoading={showLoading}
+            onShowForm={this.handleShowPCRForm}
+          />
+        );
 
-      default: return null;
+      default:
+        return null;
     }
-  }
+  };
 
   handleShowPCRForm = (test) => {
     if (test.firstTest) {
@@ -153,43 +155,51 @@ class Profile extends Component {
       apiFetch({
         method: 'GET',
         url: API_URLS.userProfileId(profileID),
-      }).then((profile) => {
-        test.name = profile.name;
-        test.lastname = profile.lastname1;
-        test.gender = profile.gender;
-        test.phone = phone;
+      })
+        .then((profile) => {
+          test.name = profile.name;
+          test.lastname = profile.lastname1;
+          test.gender = profile.gender;
+          test.phone = phone;
 
-        this.setState({
-          showPCRTestForm: true,
-          test,
-        }, () => {
-          showLoading(false);
+          this.setState(
+            {
+              showPCRTestForm: true,
+              test,
+            },
+            () => {
+              showLoading(false);
+            },
+          );
+        })
+        .catch((error) => {
+          console.error(error);
+          this.setState(
+            {
+              showPCRTestForm: true,
+              test,
+            },
+            () => {
+              showLoading(false);
+            },
+          );
         });
-      }).catch((error) => {
-        console.error(error);
-        this.setState({
-          showPCRTestForm: true,
-          test,
-        }, () => {
-          showLoading(false);
-        });
-      });
     } else {
       this.setState({
         showPCRTestForm: true,
         test,
       });
     }
-  }
+  };
 
   handleSubmit = async (answers) => {
     const { showLoading } = this.props;
-    const { test: { profileID } } = this.state;
+    const {
+      test: { profileID },
+    } = this.state;
     const user = await sessionService.loadUser();
 
-    const {
-      profiles,
-    } = user;
+    const { profiles } = user;
 
     showLoading(true);
 
@@ -200,65 +210,78 @@ class Profile extends Component {
       method: 'POST',
       url: API_URLS.saveUserPCRTest(profileID),
       params: answers,
-    }).then((testResult) => {
-      const pcrTest = answers;
-      pcrTest.id = testResult.id;
-      pcrTest.profileID = profileID;
-      pcrTest.verifiedEmail = !testResult.haveVerifyEmail;
-      pcrTest.verifiedPhone = !testResult.haveVerifyPhone;
-      pcrTest.verified = false;
-      pcrTest.timestamp = Math.floor(new Date().getTime() / 1000);
+    })
+      .then((testResult) => {
+        const pcrTest = answers;
+        pcrTest.id = testResult.id;
+        pcrTest.profileID = profileID;
+        pcrTest.verifiedEmail = !testResult.haveVerifyEmail;
+        pcrTest.verifiedPhone = !testResult.haveVerifyPhone;
+        pcrTest.verified = false;
+        pcrTest.timestamp = Math.floor(new Date().getTime() / 1000);
 
-      sessionService.saveUser({
-        ...user,
-        profiles: profiles.map((profile) => {
-          if (profile.id === profileID) {
-            return {
-              ...profile,
-              pcr: [
-                {
-                  ...pcrTest,
-                },
-                ...profile.pcr,
-              ],
-            };
-          }
-          return profile;
-        }),
-      });
-
-      if (!pcrTest.verifiedEmail || !pcrTest.verifiedPhone) {
-        this.setState({
-          test: {
-            ...pcrTest,
-            onlyValidateFields: true,
-          },
-        }, () => {
-          showLoading(false);
+        sessionService.saveUser({
+          ...user,
+          profiles: profiles.map((profile) => {
+            if (profile.id === profileID) {
+              return {
+                ...profile,
+                pcr: [
+                  {
+                    ...pcrTest,
+                  },
+                  ...profile.pcr,
+                ],
+              };
+            }
+            return profile;
+          }),
         });
 
-        return;
-      }
+        if (!pcrTest.verifiedEmail || !pcrTest.verifiedPhone) {
+          this.setState(
+            {
+              test: {
+                ...pcrTest,
+                onlyValidateFields: true,
+              },
+            },
+            () => {
+              showLoading(false);
+            },
+          );
 
-      this.setState({
-        showPCRTestForm: false,
-        currentActiveTabIndex: 2,
-      }, () => {
-        showLoading(false);
+          return;
+        }
+
+        this.setState(
+          {
+            showPCRTestForm: false,
+            currentActiveTabIndex: 2,
+          },
+          () => {
+            showLoading(false);
+          },
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+        this.setState(
+          {
+            showPCRTestForm: false,
+          },
+          () => {
+            showLoading(false);
+          },
+        );
       });
-    }).catch((error) => {
-      console.error(error);
-      this.setState({
-        showPCRTestForm: false,
-      }, () => {
-        showLoading(false);
-      });
-    });
-  }
+  };
 
   handleValidateField = (values) => {
     const { showLoading } = this.props;
-    const { test: { id: pcrID, profileID } } = this.state;
+    const {
+      test: { id: pcrID, profileID },
+    } = this.state;
     const params = {};
 
     if (values.emailValidate) {
@@ -274,63 +297,71 @@ class Profile extends Component {
       method: 'POST',
       url: API_URLS.validatePCRField(profileID, pcrID),
       params,
-    }).then(async (validationResult) => {
-      const { test } = this.state;
+    })
+      .then(async (validationResult) => {
+        const { test } = this.state;
 
-      if (typeof validationResult.email !== 'undefined') {
-        test.verifiedEmail = validationResult.email;
-      }
+        if (typeof validationResult.email !== 'undefined') {
+          test.verifiedEmail = validationResult.email;
+        }
 
-      if (typeof validationResult.phone !== 'undefined') {
-        test.verifiedPhone = validationResult.phone;
-      }
+        if (typeof validationResult.phone !== 'undefined') {
+          test.verifiedPhone = validationResult.phone;
+        }
 
-      const user = await sessionService.loadUser();
-      const { profiles } = user;
+        const user = await sessionService.loadUser();
+        const { profiles } = user;
 
-      sessionService.saveUser({
-        ...user,
-        profiles: profiles.map((profile) => {
-          if (profile.id === profileID) {
-            return {
-              ...profile,
-              pcr: profile.pcr.map((p) => {
-                if (p.id === test.id) {
-                  return test;
-                }
+        sessionService.saveUser({
+          ...user,
+          profiles: profiles.map((profile) => {
+            if (profile.id === profileID) {
+              return {
+                ...profile,
+                pcr: profile.pcr.map((p) => {
+                  if (p.id === test.id) {
+                    return test;
+                  }
 
-                return p;
-              }),
-            };
-          }
-          return profile;
-        }),
-      });
-
-      if (!test.verifiedEmail || !test.verifiedPhone) {
-        this.setState({
-          test: {
-            ...test,
-            onlyValidateFields: true,
-            timestamp: Math.floor(new Date().getTime() / 1000),
-          },
-        }, () => {
-          showLoading(false);
+                  return p;
+                }),
+              };
+            }
+            return profile;
+          }),
         });
 
-        return;
-      }
+        if (!test.verifiedEmail || !test.verifiedPhone) {
+          this.setState(
+            {
+              test: {
+                ...test,
+                onlyValidateFields: true,
+                timestamp: Math.floor(new Date().getTime() / 1000),
+              },
+            },
+            () => {
+              showLoading(false);
+            },
+          );
 
-      this.setState({
-        showPCRTestForm: false,
-      }, () => {
+          return;
+        }
+
+        this.setState(
+          {
+            showPCRTestForm: false,
+          },
+          () => {
+            showLoading(false);
+          },
+        );
+      })
+      .catch((error) => {
+        console.error(error);
         showLoading(false);
       });
-    }).catch((error) => {
-      console.error(error);
-      showLoading(false);
-    });
-  }
+  };
 
   render() {
     const {
@@ -345,11 +376,7 @@ class Profile extends Component {
       showPCRTestForm,
     } = this.state;
     if (showEditProfile) {
-      return (
-        <EditProfile
-          id={match.params.profileID}
-        />
-      );
+      return <EditProfile id={match.params.profileID} />;
     }
     if (loaded && profile) {
       return (
@@ -365,13 +392,11 @@ class Profile extends Component {
               showArrowBack
               showProfile
               showTabs
-              goBack={() => history.push('/main/test')}
-              goProfile={() => this.setState({ showEditProfile: true })}
+              goBack={/* istanbul ignore next */() => history.push('/main/test')}
+              goProfile={/* istanbul ignore next */() => this.setState({ showEditProfile: true })}
             />
             <section className='profile-a'>
-              <div className='tab-content'>
-                {this.showTabContent()}
-              </div>
+              <div className='tab-content'>{this.showTabContent()}</div>
             </section>
           </div>
           {showPCRTestForm && (
@@ -379,7 +404,11 @@ class Profile extends Component {
               <div className='overlay open' />
               <div className='search-sec-text pcrtest-moda-wrapper'>
                 <div className='pcrtest-modal-header'>
-                  <img src='/assets/images/green-arrow.svg' onClick={() => this.setState({ showPCRTestForm: false })} alt='' />
+                  <img
+                    src='/assets/images/green-arrow.svg'
+                    onClick={() => this.setState({ showPCRTestForm: false })}
+                    alt=''
+                  />
                   <span>{literalsPCR.test2.newPCRTest}</span>
                 </div>
                 <div className='pcrtest-form-wrapper'>
@@ -387,7 +416,7 @@ class Profile extends Component {
                     test={test}
                     literals={literalsPCR}
                     onSubmitForm={this.handleSubmit}
-                    onCancel={() => this.setState({ showPCRTestForm: false })}
+                    onCancel={/* istanbul ignore next */() => this.setState({ showPCRTestForm: false })}
                     onValidateField={this.handleValidateField}
                     showLoading={showLoading}
                   />

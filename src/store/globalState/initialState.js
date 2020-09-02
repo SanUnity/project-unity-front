@@ -19,6 +19,10 @@ export default {
   location: {
 
   },
+  phone: {
+    success: '',
+    error: '',
+  },
   validation: {
     success: '',
     error: '',

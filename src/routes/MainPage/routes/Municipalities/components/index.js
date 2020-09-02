@@ -12,11 +12,10 @@ import history from 'store/history';
 // import Modal from 'components/UI/Modal';
 import WideToggle from 'components/UI/WideToggle';
 import Checkbox from 'components/UI/Checkbox';
-import MunicipalitiesPolygons from 'constants/MUNICIPIOS-MX.json';
 import StatesPolygons from 'constants/ESTADOS-MX.json';
 
-import { ReactComponent as FavoriteIcon } from 'routes/MainPage/icons/favorite_star.svg';
 
+import FavoriteStar from 'routes/MainPage/icons/FavoriteStar';
 import Map from './Map';
 import List from './List';
 
@@ -80,10 +79,7 @@ class Municipalities extends Component {
   componentDidMount() {
     // client navigates back via browser to close modal
     window.addEventListener('popstate', this.closeModalWrapper);
-    const { states } = this.state;
-
-    if (!states.length) this.fetchStates();
-
+    this.fetchStates();
     const { showLoading } = this.props;
     showLoading(true);
 
@@ -105,7 +101,6 @@ class Municipalities extends Component {
         showLoading(false);
         this.initNearbySearch();
         this.drawMap();
-        setTimeout(() => this.waitForMap(0), 0);
       }
     }
   }
@@ -153,38 +148,21 @@ class Municipalities extends Component {
       hospitals,
       hospitalsFiltered,
       stateSelected,
+      term,
     } = this.state;
-    const term = this.term || '';
-    if (!this.term) {
-      saveLocation({
-        municipalities: {
-          states,
-          pcDetected,
-          clientLat,
-          clientLng,
-          hospitals,
-          hospitalsFiltered,
-          stateSelected,
-          term,
-        },
-      });
-    }
+    saveLocation({
+      municipalities: {
+        states,
+        pcDetected,
+        clientLat,
+        clientLng,
+        hospitals,
+        hospitalsFiltered,
+        stateSelected,
+        term,
+      },
+    });
     history.goForward();
-  }
-
-  waitForMap = (n) => {
-    if (n > 10) return;
-
-    if (this.mapRef) {
-      this.setState({
-        // eslint-disable-next-line
-        reRender: true,
-      }, () => {
-        this.mapComponent.drawMarkers(this.mapRef);
-      });
-    } else {
-      setTimeout(() => this.waitForMap(n + 1), 500);
-    }
   }
 
   closeModalWrapper = () => {
@@ -194,6 +172,7 @@ class Municipalities extends Component {
       this.closeModal();
       this.closeModalFilters();
     } else {
+      /* istanbul ignore next */
       history.goBack();
     }
   };
@@ -225,62 +204,39 @@ class Municipalities extends Component {
     });
   }
 
-  createMunicipalitiesPolygonsData = () => {
-    const {
-      term,
-      hospitals,
-      stateSelected,
-      states,
-      levelSelected,
-    } = this.state;
-
-    const filtersLevelActive = Object.keys(levelSelected).filter(level => levelSelected[level] === true);
-    const hospitalsFilteredByTerm = hospitals.filter(({ properties: { municipio_nombre: name } }) => name && clearString(name.trim().toUpperCase()).search(clearString(term.toUpperCase())) !== -1);
-    const hospitalsFilteredByLevel = hospitalsFilteredByTerm.filter(h => filtersLevelActive.indexOf(h.data.status) >= 0);
-    const currentState = states.find(state => parseInt(state.id, 10) === parseInt(stateSelected, 10)) || { title: '' };
-    const hospitalsFiltered = [];
-
-    hospitalsFilteredByLevel.map((hospital) => {
-      hospital.stateName = currentState.title;
-      hospitalsFiltered.push(hospital);
-      return 0;
-    });
-
-    this.setState({ hospitalsFiltered }, () => {
-      this.mapComponent.drawMarkers(true);
-    });
-  }
-
   fetchStates = () => {
-    apiFetch({
-      method: 'GET',
-      url: `${API_URLS.states}`,
-    }).then((data) => {
-      const states = [];
-      data.map((state) => {
-        state.value = state.id;
-        states.push({
-          id: state.cveID,
-          title: state.name,
-          value: state.cveID,
+    try {
+      apiFetch({
+        method: 'GET',
+        url: `${API_URLS.states}`,
+      }).then((data) => {
+        const states = [];
+        data.map((state) => {
+          state.value = state.id;
+          states.push({
+            id: state.cveID,
+            title: state.name,
+            value: state.cveID,
+          });
+          return state;
         });
-        return state;
+        this.setState({ states });
       });
-      this.setState({ states });
-    }).catch((error) => {
-      console.error(error);
-    });
+    // eslint-disable-next-line no-empty
+    } catch (err) {}
   }
 
-  fetchStatesData = () => {
+  fetchStatesData = async () => {
     const data = StatesPolygons.features;
 
     const { showLoading } = this.props;
     showLoading(true);
-    apiFetch({
-      method: 'GET',
-      url: API_URLS.statesInfo,
-    }).then((statesInfo) => {
+
+    try {
+      const statesInfo = await apiFetch({
+        method: 'GET',
+        url: API_URLS.statesInfo,
+      });
       showLoading(false);
 
       const hospitals = statesInfo.map((state) => {
@@ -296,56 +252,10 @@ class Municipalities extends Component {
       }).filter(m => m !== null);
 
       this.setState({ hospitals });
-    }).catch((error) => {
+    // eslint-disable-next-line no-empty
+    } catch (err) {} finally {
       showLoading(false);
-      console.error(error);
-    });
-  }
-
-  fetchMunicipalitiesData = (stateID) => {
-    const data = MunicipalitiesPolygons.features.filter(feat => parseInt(feat.properties.entidad_cvegeo, 10) === parseInt(stateID, 10));
-
-    const { showLoading } = this.props;
-    showLoading(true);
-    apiFetch({
-      method: 'GET',
-      url: API_URLS.municipalitiesInfo,
-      params: { stateID },
-    }).then((municipalitiesInfo) => {
-      showLoading(false);
-
-      const hospitals = municipalitiesInfo.map((municipality) => {
-        let municipalityPolygon = data.find(d => d.properties.municipio_cvegeo === municipality.id);
-
-        if (typeof municipalityPolygon !== 'undefined') {
-          municipalityPolygon.data = municipality;
-        } else {
-          municipalityPolygon = null;
-        }
-
-        return municipalityPolygon;
-      }).filter(m => m !== null);
-
-      this.setState({ hospitals });
-    }).catch((error) => {
-      showLoading(false);
-      console.error(error);
-    });
-  }
-
-  fetchInfoWithPc = (pc) => {
-    apiFetch({
-      method: 'GET',
-      url: `${API_URLS.postalCodes(pc)}`,
-    }).then((data) => {
-      if (data.length) {
-        this.setState({
-          stateSelected: data[0].stateCVE,
-        });
-      }
-    }).catch((error) => {
-      console.error(error);
-    });
+    }
   }
 
   loadMap = async () => {
@@ -380,47 +290,6 @@ class Municipalities extends Component {
   closeModalFilters = () => {
     this.setState({ modalFiltersActive: false });
   };
-
-  renderLevel = (level) => {
-    const {
-      literals,
-    } = this.props;
-
-    switch (level) {
-      case 1: return <span className='level firstLevel'>{literals.level1}</span>;
-      case 2: return <span className='level secondLevel'>{literals.level2}</span>;
-      case 3: return <span className='level thirdLevel'>{literals.level3}</span>;
-      default: return <span />;
-    }
-  }
-
-  renderLevelDetails = (level, isCovid) => {
-    const {
-      literals,
-    } = this.props;
-
-    switch (level) {
-      case 1: return (
-        <span className='level firstLevel'>
-          {literals.levelDetail1}
-          {isCovid && (<span className='is-covid'>COVID</span>)}
-          <small>{literals.levelDetail1Desc}</small>
-        </span>);
-      case 2: return (
-        <span className='level secondLevel'>
-          {literals.levelDetail2}
-          {isCovid && (<span className='is-covid'>COVID</span>)}
-          <small>{literals.levelDetail2Desc}</small>
-        </span>);
-      case 3: return (
-        <span className='level thirdLevel'>
-          {literals.levelDetail3}
-          {isCovid && (<span className='is-covid'>COVID</span>)}
-          <small>{literals.levelDetail3Desc}</small>
-        </span>);
-      default: return <span />;
-    }
-  }
 
   getLatLonCenterFromGeom = (coords) => {
     const arrAvg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
@@ -526,7 +395,7 @@ class Municipalities extends Component {
                 <p>{municipalitySelected.properties.entidad_nombre}</p>
               </div>
               <span className={`favorite-wrapper ${savingFavorite ? 'saving-favorite' : ''} ${municipalitySelected.data.favorite ? 'is-favorite' : ''}`} onClick={() => this.handleFavorite(itemId)}>
-                <FavoriteIcon className='favorite-icon' />
+                <FavoriteStar className='favorite-icon' />
                 <span className='txt-favorite'>{literals.favorite}</span>
                 <span className='txt-make-favorite'>{literals.markAsFavorite}</span>
                 <span className='txt-saving-favorite'>{literals.savingFavorite}</span>
@@ -691,7 +560,12 @@ class Municipalities extends Component {
               locationsToDisplay={hospitalsFiltered}
               zoom={zoom}
               ref={(mapComponent) => {
-                this.mapComponent = mapComponent;
+                if (mapComponent) {
+                  if (!this.mapComponent) {
+                    mapComponent.drawMarkers();
+                  }
+                  this.mapComponent = mapComponent;
+                }
               }}
               mapRef={this.mapRef}
               onMarkerClick={index => this.openModal(index, 1)}

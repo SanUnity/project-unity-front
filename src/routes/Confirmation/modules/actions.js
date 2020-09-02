@@ -41,7 +41,6 @@ export default function phoneValidationAction(validationForm) {
           dispatch(loadingAction(false));
           return;
         }
-
         await UserSession.updateSession(res);
         dispatch(phoneValidationSuccess());
         dispatch(loadingAction(false));
@@ -51,7 +50,6 @@ export default function phoneValidationAction(validationForm) {
           phoneValidationFailure(err?.response?.data || { message: 'otpError' }),
         );
         dispatch(loadingAction(false));
-        throw (err);
       });
   };
 }
@@ -82,7 +80,6 @@ export function userSignupAnonymousAction(validationForm) {
           phoneValidationFailure(err?.response?.data || { message: 'otpError' }),
         );
         dispatch(loadingAction(false));
-        throw (err);
       });
   };
 }

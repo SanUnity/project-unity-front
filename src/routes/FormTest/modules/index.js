@@ -3,7 +3,7 @@ import { SET_FORM_CONFIGURATION } from './types';
 
 const LOCAL_MUNICIPALITY = localStorage.getItem('CONF_MUNICIPALITY');
 
-const baseConf = {
+export const baseConf = {
   municipality: LOCAL_MUNICIPALITY || '0',
   questions: getFormConfigurationByMunicipality(LOCAL_MUNICIPALITY),
 };

@@ -40,7 +40,7 @@ describe('SignUp reducer', () => {
       type: SIGNUP_SUCCESS,
       payload: {
         phone: '1234567890',
-        otp: '123456',
+        otp: '',
       },
     };
 
@@ -161,10 +161,15 @@ describe('SignUp Request', () => {
     const expectedActions = [
       { type: LOADING, payload: true },
       { type: SIGNUP_INIT },
-      { type: SIGNUP_SUCCESS, payload: { phone: '1234567890' } },
+      {
+        type: SIGNUP_SUCCESS,
+        payload: {
+          phone: '1234567890',
+        },
+      },
       { type: LOADING, payload: false },
     ];
-    return store.dispatch(fetchSignupAction('1234567890')).then(() => {
+    return store.dispatch(fetchSignupAction({ phone: '1234567890' })).then(() => {
       expect(store.getActions()).toEqual(expectedActions);
       done();
     });
@@ -187,7 +192,7 @@ describe('SignUp Request', () => {
       { type: SIGNUP_INIT },
       {
         type: SIGNUP_FAILURE,
-        payload: errorMsg,
+        payload: { message: errorMsg },
       },
       { type: LOADING, payload: false },
     ];

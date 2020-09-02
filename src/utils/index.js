@@ -3,6 +3,7 @@
 import moment from 'moment';
 import 'moment/locale/es';
 import FORM_BASE, { FORM_CDMX } from 'constants/testConfiguration';
+import test from './testUtils';
 
 const MUNICIPALITY_CODE_CDMX = '1';
 
@@ -125,3 +126,27 @@ export function getFormConfigurationByMunicipality(municipality) {
       return FORM_BASE;
   }
 }
+
+
+function debounce(func, wait, isImmediate = false) {
+  let timeout;
+  return (...args) => {
+    const later = () => {
+      timeout = null;
+      if (!isImmediate) {
+        func(...args);
+      }
+    };
+    const callNow = isImmediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) {
+      func(...args);
+    }
+  };
+}
+
+export default {
+  test,
+  debounce,
+};

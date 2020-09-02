@@ -5,6 +5,7 @@ import React from 'react';
  *
  * @returns {JSX}
  */
+
 function Footer() {
   return (
     <section className='login-back-inn'>
@@ -21,10 +22,8 @@ function Footer() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
-
   );
 }
 

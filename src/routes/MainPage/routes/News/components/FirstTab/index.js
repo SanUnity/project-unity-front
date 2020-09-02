@@ -17,14 +17,16 @@ const FirstTab = ({ literals, listItems, onClickNews }) => {
     let month = date.getMonth() + 1;
     let day = date.getDate();
 
-    day = (day < 10) ? `0${day}` : day.toString();
-    month = (month < 10) ? `0${month}` : month.toString();
+    day = day < 10 ? `0${day}` : day.toString();
+    month = month < 10 ? `0${month}` : month.toString();
 
     return {
-      date, day, month, year,
+      date,
+      day,
+      month,
+      year,
     };
   };
-
 
   const groupByDate = (list) => {
     const listGrouped = {};
@@ -47,39 +49,49 @@ const FirstTab = ({ literals, listItems, onClickNews }) => {
 
   return listGrouped ? (
     <div className='tab-pane active'>
-      {!listItems.length && (<p className='no-elements'>{literals.noNews}</p>)}
-      {Object
-        .keys(listGrouped)
-        .map((date) => {
-          const list = listGrouped[date];
-          return (
-            <React.Fragment key={date}>
-              <p className='date-title'>{formatDateNews(new Date(date).getTime() / 1000)}</p>
-              {list.map((elem, index) => {
-                return (
-                  <div key={index} className='releases-item' onClick={() => onClickNews(elem)}>
-                    <div className='media'>
-                      <img className='align-self-center mr-3' src={index % 2 === 0 ? '/assets/images/news-img-red.svg' : '/assets/images/news-img-white.svg'} alt='' />
-                      <div className='media-body'>
-                        <p className='n-title crop-text lines-3'>
-                          {elem.title}
-                        </p>
-                        <img
-                          className='n-image'
-                          src='/assets/images/chevron-right.svg'
-                          alt=''
-                        />
-                      </div>
+      {!listItems.length && <p className='no-elements'>{literals.noNews}</p>}
+      {Object.keys(listGrouped).map((date) => {
+        const list = listGrouped[date];
+        return (
+          <React.Fragment key={date}>
+            <p className='date-title'>
+              {formatDateNews(new Date(date).getTime() / 1000)}
+            </p>
+            {list.map((elem, index) => {
+              return (
+                <div
+                  key={index}
+                  className='releases-item'
+                  onClick={() => onClickNews(elem)}
+                >
+                  <div className='media'>
+                    <img
+                      className='align-self-center mr-3'
+                      src={
+                        index % 2 === 0
+                          ? '/assets/images/news-img-red.svg'
+                          : '/assets/images/news-img-white.svg'
+                      }
+                      alt=''
+                    />
+                    <div className='media-body'>
+                      <p className='n-title crop-text lines-3'>{elem.title}</p>
+                      <img
+                        className='n-image'
+                        src='/assets/images/chevron-right.svg'
+                        alt=''
+                      />
                     </div>
                   </div>
-                );
-              })}
-            </React.Fragment>
-          );
-        })
-      }
+                </div>
+              );
+            })}
+          </React.Fragment>
+        );
+      })}
     </div>
-  ) : null;
+  ) /* istanbul ignore next */
+    : null; // this never happens...
 };
 
 FirstTab.propTypes = {
