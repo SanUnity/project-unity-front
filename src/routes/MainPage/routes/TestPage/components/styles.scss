@@ -22,7 +22,7 @@
       text-align: center;
       margin: 10px 0;
       font-family: Bitter, sans-serif;
-      color: $green-federal;
+      color: $color-dark-gray;
     }
 
     h4 {
@@ -31,7 +31,7 @@
       line-height: 24px;
       align-items: center;
       text-align: center;
-      color: $green-federal;
+      color: $color-dark-gray;
       margin-bottom: 0;
       padding-top: 20px;
       font-family: Bitter, sans-serif;
@@ -55,7 +55,7 @@
       text-align: center;
       white-space: pre-wrap;
       font-family: OpenSans, sans-serif;
-      color: $green-federal;
+      color: $color-dark-gray;
     }
 
     p {
@@ -166,7 +166,7 @@
 .profiles-wrapper {
   .snackbar {
     z-index: 1;
-    background-color: $green-federal;
+    background-color: $color-dark-gray;
     top: 20px;
     height: 80px;
     padding: 0 12px;
@@ -229,13 +229,13 @@
         font-size: 14px;
         line-height: 24px;
         margin: 10px 0;
-        color: $green-federal;
+        color: $color-dark-gray;
       }
 
       .btn-test-other {
         margin-top: 25px;
         .btn {
-          background: $color-green;
+          background: $color-primary;
           box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
           border-radius: 38px;
           border: transparent;
@@ -321,7 +321,7 @@
     .status-indicator {
       width: 12px;
       height: 12px;
-      background-color: $color-green;
+      background-color: $color-primary;
       border-radius: 50%;
       display: inline-block;
       position: relative;
@@ -329,7 +329,7 @@
     }
 
     .default-profile-icon {
-      fill: $color-green;
+      fill: $color-primary;
       width: 20px;
       position: relative;
       bottom: 2px;
@@ -345,15 +345,15 @@
         justify-content: space-between;
 
         .btn {
-          background: $cdmx-gray-CC;
-          color: $cdmx-gray-99;
+          background: $color-gray-CC;
+          color: $color-gray-99;
           box-shadow: none;
 
           &:focus,
           &:hover,
           &:active {
-            background: $cdmx-gray-CC !important;
-            border-color:  $cdmx-gray-CC !important;
+            background: $color-gray-CC !important;
+            border-color:  $color-gray-CC !important;
           }
         }
       }
@@ -371,7 +371,7 @@
           font-weight: bold;
           font-size: 12px;
           line-height: 16px;
-          color: $green-federal;
+          color: $color-dark-gray;
           font-family: Bitter, sans-serif;
           padding: 0 2px;
         }
@@ -385,7 +385,7 @@
         width: auto;
         height: auto;
         padding: 6px 18px;
-        background: $color-green;
+        background: $color-primary;
         box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
         border: transparent;
         font-family: Bitter, sans-serif;
@@ -397,7 +397,7 @@
       font-family: OpenSans, sans-serif;
       font-size: 14px;
       line-height: 20px;
-      color: $green-federal;
+      color: $color-dark-gray;
       white-space: normal;
       height: 40px;
     }
@@ -407,7 +407,7 @@
       font-weight: bold;
       font-size: 16px;
       line-height: 24px;
-      color: $green-federal;
+      color: $color-dark-gray;
       // margin-bottom: 0px;
       display: inline;
       margin-left: 10px;
@@ -513,7 +513,7 @@
         width: auto;
         height: auto;
         padding: 6px 18px;
-        background: $color-green;
+        background: $color-primary;
         box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
         border: transparent;
         font-family: Bitter, sans-serif;
@@ -626,7 +626,7 @@
 
       .btn-only-verify {
         font-weight: bold;
-        color: $color-green;
+        color: $color-primary;
         margin-top: 25px;
         text-decoration: underline;
       }
@@ -650,7 +650,7 @@
         }
 
         button {
-          background: $color-green;
+          background: $color-primary;
           color: $color-white;
           box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
           border-radius: 38px;
@@ -665,15 +665,15 @@
           outline: none;
 
           &.disabled {
-            background: $cdmx-gray-CC;
-            color: $cdmx-gray-99;
+            background: $color-gray-CC;
+            color: $color-gray-99;
             box-shadow: none;
 
             &:focus,
             &:hover,
             &:active {
-              background: $cdmx-gray-CC !important;
-              border-color:  $cdmx-gray-CC !important;
+              background: $color-gray-CC !important;
+              border-color:  $color-gray-CC !important;
             }
           }
         }
@@ -684,7 +684,7 @@
         text-align: center;
         margin: 10px 0;
         button {
-          background: $color-green;
+          background: $color-primary;
           color: $color-white;
           box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
           border-radius: 38px;
@@ -697,15 +697,15 @@
           outline: none;
 
           &.disabled {
-            background: $cdmx-gray-CC;
-            color: $cdmx-gray-99;
+            background: $color-gray-CC;
+            color: $color-gray-99;
             box-shadow: none;
 
             &:focus,
             &:hover,
             &:active {
-              background: $cdmx-gray-CC !important;
-              border-color:  $cdmx-gray-CC !important;
+              background: $color-gray-CC !important;
+              border-color:  $color-gray-CC !important;
             }
           }
         }
@@ -727,7 +727,7 @@
       }
 
       button {
-        background: $color-green;
+        background: $color-primary;
         color: $color-white;
         box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
         border-radius: 38px;
@@ -740,15 +740,15 @@
         outline: none;
 
         &.disabled {
-          background: $cdmx-gray-CC;
-          color: $cdmx-gray-99;
+          background: $color-gray-CC;
+          color: $color-gray-99;
           box-shadow: none;
 
           &:focus,
           &:hover,
           &:active {
-            background: $cdmx-gray-CC !important;
-            border-color:  $cdmx-gray-CC !important;
+            background: $color-gray-CC !important;
+            border-color:  $color-gray-CC !important;
           }
         }
       }
@@ -778,7 +778,7 @@
 
     li {
       margin: 10px 0;
-      background: $color-green;
+      background: $color-primary;
       border-radius: 58px;
       border: transparent;
       padding: 12px 40px 12px 40px;

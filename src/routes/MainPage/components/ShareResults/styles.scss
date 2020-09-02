@@ -111,13 +111,13 @@
             height: 25px;
             width: 25px;
             background-color: #FFF;
-            border: 1px solid $cdmx-gray-CC;
+            border: 1px solid $color-gray-CC;
             border-radius: 5px;
           }
 
           &.active {
-            background-color: $color-green;
-            border-color: $color-green;
+            background-color: $color-primary;
+            border-color: $color-primary;
             border-top-color: #FFF;
             color: #FFF;
 
@@ -187,7 +187,7 @@
 
       .positive-steps-wrapper {
         a {
-          color: $color-green;
+          color: $color-primary;
           font-weight: bold;
         }
 
@@ -211,7 +211,7 @@
         .plr-5 {
           padding: 0 5px;
           font-weight: bold;
-          color: $color-green;
+          color: $color-primary;
         }
 
         .local-share-wrapper {
@@ -227,7 +227,7 @@
       }
 
       .no-contact {
-        color: $color-green;
+        color: $color-primary;
         font-weight: bold;
         margin-top: 15px;
       }

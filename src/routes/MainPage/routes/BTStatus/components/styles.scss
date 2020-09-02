@@ -23,7 +23,7 @@
     text-align: center;
 
     .btn {
-      background: $color-green;
+      background: $color-primary;
       box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
       border-radius: 58px;
       border: transparent;
@@ -37,8 +37,8 @@
       &:focus,
       &:hover,
       &:active {
-        background: $color-green !important;
-        border-color: $color-green !important;
+        background: $color-primary !important;
+        border-color: $color-primary !important;
       }
     }
   }
@@ -83,7 +83,7 @@
         font-weight: bold;
         font-size: 14px;
         line-height: 20px;
-        color: $color-green;
+        color: $color-primary;
         margin-bottom: 0;
         text-align: right;
         padding-top: 10px;
@@ -147,7 +147,7 @@
       text-align: center;
       .btn {
         margin: 10px 0;
-        background: $color-green;
+        background: $color-primary;
         box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
         border-radius: 58px;
         border: transparent;
@@ -161,8 +161,8 @@
         &:focus,
         &:hover,
         &:active {
-          background: $color-green !important;
-          border-color: $color-green !important;
+          background: $color-primary !important;
+          border-color: $color-primary !important;
         }
       }
     }
@@ -199,13 +199,13 @@
 
     &.active-info {
       h2 {
-        color: $green-federal;
+        color: $color-dark-gray;
       }
     }
 
     &.inactive-info {
       h2 {
-        color: $color-green;
+        color: $color-primary;
       }
     }
   }
@@ -228,13 +228,13 @@
   a {
     text-align: center;
     text-transform: uppercase;
-    color: $color-green !important;
+    color: $color-primary !important;
     font-weight: bold;
     text-decoration: underline !important;
     padding: 10px 0 20px;
 
     &:hover {
-      color: $color-green;
+      color: $color-primary;
     }
   }
 }

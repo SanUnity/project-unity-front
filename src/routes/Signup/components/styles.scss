@@ -51,7 +51,7 @@
   .text-login {
     padding: 25px 0px;
     text-align: center;
-    color: $green-federal;
+    color: $color-dark-gray;
 
     h1 {
       font-style: normal;
@@ -60,11 +60,11 @@
       line-height: 44px;
       margin-bottom: 0;
       font-family: OpenSans, sans-serif;
-      color: $green-federal;
+      color: $color-dark-gray;
     }
 
     h4 {
-      color: $color-Gray35;
+      color: $color-gray-35;
       font-family: OpenSans, sans-serif;
       font-style: normal;
       font-size: 18px;
@@ -82,7 +82,7 @@
       font-weight: normal;
       font-size: 20px;
       line-height: 27px;
-      color: $color-Gray35;
+      color: $color-gray-35;
       text-align: center;
       margin: 10px 0 30px;
       white-space: pre-wrap;
@@ -225,7 +225,7 @@ section.login-head-inn {
 
 .terms-link {
   font-weight: bold;
-  color: $color-green;
+  color: $color-primary;
 }
 
 .search-sec-text.terms-and-conditions {
@@ -246,7 +246,7 @@ section.login-head-inn {
 
     .btn {
       margin: 10px 0;
-      background: $color-green;
+      background: $color-primary;
       box-shadow: 0px 10px 12px rgba(236, 0, 0, 0.2);
       border-radius: 58px;
       border: transparent;
@@ -260,8 +260,8 @@ section.login-head-inn {
       &:focus,
       &:hover,
       &:active {
-        background: $color-green;
-        border-color: $color-green;
+        background: $color-primary;
+        border-color: $color-primary;
       }
 
       &:disabled {
@@ -278,7 +278,7 @@ section.login-head-inn {
 
   .terms-and-conditions-wrapper {
     .privacy-link {
-      color: $color-green;
+      color: $color-primary;
       padding-left: 5px;
       font-weight: bold;
       text-decoration: underline;

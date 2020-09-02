@@ -62,7 +62,7 @@
       font-size: 16px;
       line-height: 24px;
       font-weight: bold;
-      background-color: $color-green;
+      background-color: $color-primary;
       color: $color-white;
       outline: none;
       border: none;
@@ -74,7 +74,7 @@
       }
       &.disabled {
         background-color: $btn-border;
-        color: $cdmx-gray-99;
+        color: $color-gray-99;
       }
     }
   }

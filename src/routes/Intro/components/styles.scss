@@ -109,14 +109,14 @@
     line-height: 24px;
     align-items: center;
     text-align: center;
-    color: $green-federal;
+    color: $color-dark-gray;
     margin-top: 20px;
     margin-bottom: 0;
     font-family: OpenSans, sans-serif;
   }
 
   h2 {
-    color: $green-federal;
+    color: $color-dark-gray;
     font-family: 'Bitter', sans-serif;
     font-size: 28px;
     font-weight: bold;
@@ -131,7 +131,7 @@
     padding: 0 24px;
 
     > span {
-      color: $green-federal;
+      color: $color-dark-gray;
       font-family: 'OpenSans', sans-serif;
       margin: calc((40 * 100vw) / #{$xs}) 0 0;
       font-size: 16px;
@@ -145,7 +145,7 @@
 
       .col-a-sec {
         p {
-          color: $green-federal;
+          color: $color-dark-gray;
           font-size: 16px;
           line-height: 24px;
         }
@@ -176,7 +176,7 @@
         display: block;
         text-align: center;
         font-weight: bold;
-        color: $color-green;
+        color: $color-primary;
         margin-top: 20px;
         font-size: 16px;
       }
@@ -282,7 +282,7 @@
       font-weight: bold;
       font-size: 16px;
       line-height: 24px;
-      color: $color-green;
+      color: $color-primary;
       margin-bottom: 0;
       margin-top: 20px;
     }

@@ -27,8 +27,8 @@
       + label {
         &.positive {
           color: white;
-          border-color: $cdmx-button-bg;
-          background-color: $cdmx-button-bg;
+          border-color: $color-button-bg;
+          background-color: $color-button-bg;
         }
 
         &:not(.positive) {

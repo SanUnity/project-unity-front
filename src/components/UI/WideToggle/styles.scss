@@ -20,7 +20,7 @@
   .nav-pills {
     display: flex;
 
-    background: $cdmx-light-gray;
+    background: $color-tab-light-gray;
     border-radius: 40px;
     margin-bottom: 15px;
 
@@ -29,8 +29,8 @@
 
       .nav-link {
         font-family: OpenSans, sans-serif;
-        background: $cdmx-light-gray;
-        color: $cdmx-gray-33;
+        background: $color-tab-light-gray;
+        color: $color-gray-33;
         mix-blend-mode: normal;
         border-radius: 40px;
         border: transparent;
@@ -40,7 +40,7 @@
         line-height: 20px;
 
         &.active {
-          background: $color-green;
+          background: $color-primary;
           border: transparent;
           color: $color-white;
         }

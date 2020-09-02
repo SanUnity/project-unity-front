@@ -60,7 +60,7 @@ p.hos-c-tt {
 p.hos-lo-s-p {
   font-size: 12px !important;
   line-height: 16px !important;
-  color: $color-Gray35;
+  color: $color-gray-35;
 }
 
 .hos-lo-s {
@@ -257,7 +257,7 @@ li.hos-dot:before {
   .form-group {
     margin-bottom: 8px;
     .a-select {
-      border: 1px solid $cdmx-gray-CC;
+      border: 1px solid $color-gray-CC;
       box-sizing: border-box;
       border-radius: 4px;
       padding: 6px 14px;
@@ -332,7 +332,7 @@ li.hos-dot:before {
   .hos-det_sec {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid $cdmx-gray-CC;
+    border-bottom: 1px solid $color-gray-CC;
     padding-bottom: 20px;
     margin-bottom: 5px;
 
@@ -341,7 +341,7 @@ li.hos-dot:before {
         font-size: 14px;
         line-height: 18px;
         margin: 0;
-        color: $color-Gray35;
+        color: $color-gray-35;
       }
     }
 

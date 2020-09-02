@@ -65,7 +65,7 @@
       font-size: 16px;
       line-height: 24px;
       font-weight: bold;
-      background-color: $color-green;
+      background-color: $color-primary;
       color: $color-white;
       outline: none;
       border: none;
@@ -75,7 +75,7 @@
 
       &:disabled {
         background-color: $btn-border;
-        color: $cdmx-gray-99;
+        color: $color-gray-99;
         box-shadow: none;
       }
     }
@@ -93,7 +93,7 @@
     font-weight: bold;
     font-size: 12px;
     line-height: 16px;
-    color: $color-green;
+    color: $color-primary;
   }
 
   .footer-text {
@@ -175,7 +175,7 @@
       padding: 15px 20px;
 
       .exit-request-card-section {
-        border-bottom: 1px solid $cdmx-gray-CC;
+        border-bottom: 1px solid $color-gray-CC;
 
         h3 {
           font-family: 'Bitter', sans-serif;
@@ -245,7 +245,7 @@
           font-size: 12px;
           line-height: 16px;
           margin-bottom: 0px;
-          color: $green-federal;
+          color: $color-dark-gray;
         }
       }
     }

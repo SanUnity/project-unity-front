@@ -3,7 +3,7 @@
 .form-question {
   display: flex;
   &--error {
-    color: $cdmx-error;
+    color: $color-error;
   }
 
   &__text {
@@ -12,7 +12,7 @@
     p {
       margin: 0;
       white-space: pre-wrap;
-      
+
       &:first-child {
         font-weight: bold;
       }

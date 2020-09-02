@@ -17,14 +17,14 @@
         font-size: 16px;
         line-height: 24px;
         font-weight: bold;
-        color: $green-federal;
+        color: $color-dark-gray;
         font-family: Bitter, sans-serif;
       }
 
       > h5 {
         font-size: 20px;
         line-height: 28px;
-        color: $cdmx-dark-gray;
+        color: $color-dark-gray;
         margin: 0;
 
         b {
@@ -56,7 +56,7 @@
       }
 
       &--error {
-        border-color: $cdmx-error;
+        border-color: $color-error;
       }
     }
   }
@@ -80,12 +80,12 @@
     }
 
     &:active {
-      background-color: mix($cdmx-button-bg, black, 90%);
+      background-color: mix($color-button-bg, black, 90%);
     }
 
     &.disabled {
       background-color: $bg-color-dark;
-      color: $cdmx-gray-99;
+      color: $color-gray-99;
     }
   }
 }
@@ -128,7 +128,7 @@
 
 .form-field-sub-label {
   a {
-    color: $color-green;
+    color: $color-primary;
     font-family: Bitter;
     font-style: normal;
     font-weight: bold;
@@ -137,7 +137,7 @@
 
     &:focus,
     &:hover {
-      color: $color-green;
+      color: $color-primary;
       text-decoration: none;
     }
   }
