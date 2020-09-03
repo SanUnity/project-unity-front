@@ -15,22 +15,22 @@ const SplashScreen = ({ literals }) => {
       <div className='container-fluid'>
         <div className='row'>
           <div className='col-12 hero-text-image'>
-            <img
+            {/* <img
               alt=''
-              src='../../assets/images/mexico-government-splash.svg'
+              src=''
               className='mex-gob-img'
-            />
+            /> */}
           </div>
           <div className='col-12 hero-text-title'>
             <h1>{literals.splashScreen.mainTitle}</h1>
             <h4>{literals.splashScreen.mainSubtitle}</h4>
           </div>
           <div className='row hero-gob-footer'>
-            <img
+            {/* <img
               alt=''
-              src='../../assets/images/gob-mx.svg'
+              src=''
               className='mex-gob-img'
-            />
+            /> */}
           </div>
         </div>
       </div>
