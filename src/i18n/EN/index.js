@@ -21,6 +21,7 @@ export default {
       centres: 'Health centers',
       news: 'News',
       btstatus: 'Proximity',
+      notifications: 'Inbox',
     },
     welcome: {
       title: 'Welcome!',
@@ -1121,6 +1122,11 @@ export default {
       share: 'Share',
       close: 'Close',
       received: 'Received',
+    },
+    notifications: { // TODO NUEVO
+      close: 'Close',
+      hashtag: 'Inbox',
+      noNotifications: 'No messages',
     },
   },
 };

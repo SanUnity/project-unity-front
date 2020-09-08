@@ -4,12 +4,14 @@ import FaqIcon from '../icons/Faq';
 import Home from '../icons/Home';
 // import ManagementHealth from '../icons/ManagementHealth';
 // import Location from '../icons/Location';
+import NotificationsIcon from '../icons/Notifications';
 import Hospital from '../icons/Hospital';
 import NewsIcon from '../icons/News';
 import BTIcon from '../icons/BT';
 import Faq from './Faq';
 // import Municipalities from './Municipalities';
 // import ContagionMap from './ContagionMap';
+import Notifications from './Notifications';
 import TestingCenters from './TestingCenters';
 import TestPage from './TestPage';
 import News from './News';
@@ -28,6 +30,7 @@ export const ROUTE_PATH = Object.freeze({
   PROFILE_HISTORY: '/profile/:profileID/:mode',
   PROFILE_REQUEST: '/profile/:profileID/request/:requestID',
   BTSTATUS: '/bt-status',
+  NOTIFICATIONS: '/notifications',
 });
 
 export const routes = [
@@ -96,6 +99,16 @@ export const routes = [
     ignoreSession: false,
     title: 'news',
     icon: NewsIcon,
+  },
+  {
+    id: 8,
+    path: ROUTE_PATH.NOTIFICATIONS,
+    component: Notifications,
+    exact: true,
+    footer: true,
+    ignoreSession: false,
+    title: 'notifications',
+    icon: NotificationsIcon,
   },
   {
     path: ROUTE_PATH.CENTRES,

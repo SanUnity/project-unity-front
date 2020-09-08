@@ -21,6 +21,7 @@ export default {
       centres: 'Centros de salud',
       news: 'Noticias',
       btstatus: 'Proximidad', // NUEVO
+      notifications: 'Buzón', // NUEVO
     },
     welcome: {
       title: '¡Bienvenido!',
@@ -1122,6 +1123,11 @@ export default {
       share: 'Compartir',
       close: 'Cerrar',
       received: 'Recibido',
+    },
+    notifications: {
+      close: 'Cerrar',
+      hashtag: 'Buzón',
+      noNotifications: 'No hay mensajes',
     },
   },
 };
