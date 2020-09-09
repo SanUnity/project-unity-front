@@ -31,6 +31,7 @@ class Signup extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      pre: '',
       phone: '',
       formValid: false,
       cbAgree: false,
@@ -99,15 +100,15 @@ class Signup extends Component {
    * Function to activate/deactivate signup button
    */
   validateForm = () => {
-    const { phone, cbAgree } = this.state;
+    const { phone, pre, cbAgree } = this.state;
     return this.setState({
-      formValid: phone.length === 10 && cbAgree,
+      formValid: phone.length >= 9 && pre !== '' && cbAgree,
     });
   };
 
 
   handleSubmit = async () => {
-    const { phone, formValid } = this.state;
+    const { phone, pre, formValid } = this.state;
     const {
       municipality, onSignup, showLoading, literals,
     } = this.props;
@@ -122,7 +123,7 @@ class Signup extends Component {
     } else {
       try {
         showLoading(true);
-        await onSignup({ phone, municipality });
+        await onSignup({ phone: `${pre}${phone}`, municipality });
         showLoading(false);
       } catch (err) {
         showLoading(false);
@@ -146,7 +147,9 @@ class Signup extends Component {
   };
 
   render() {
-    const { phone, snackError, showTerms } = this.state;
+    const {
+      phone, pre, snackError, showTerms, formValid,
+    } = this.state;
     const {
       literals,
       signupData: { phone: userPhone },
@@ -185,17 +188,31 @@ class Signup extends Component {
                 <div className='pag-login'>
                   <h4>{literals.description}</h4>
                   <form noValidate autoComplete='off'>
-                    <div className='form-group'>
-                      <Input
-                        name='phone'
-                        label={literals.label}
-                        type='number'
-                        placeholder={literals.placeholder}
-                        id='phone'
-                        value={phone}
-                        maxLength={10}
-                        onChange={this.handleChange}
-                      />
+                    <div className='two-in-row'>
+                      <div className='form-group'>
+                        <Input
+                          name='pre'
+                          label={literals.labelPre}
+                          type='phone'
+                          placeholder={literals.placeholderPre}
+                          id='pre'
+                          value={pre}
+                          maxLength={3}
+                          onChange={this.handleChange}
+                        />
+                      </div>
+                      <div className='form-group'>
+                        <Input
+                          name='phone'
+                          label={literals.label}
+                          type='number'
+                          placeholder={literals.placeholder}
+                          id='phone'
+                          value={phone}
+                          maxLength={10}
+                          onChange={this.handleChange}
+                        />
+                      </div>
                     </div>
                     <div className='form-group form-check'>
                       <Checkbox
@@ -220,7 +237,7 @@ class Signup extends Component {
                       <Button
                         label={literals.button}
                         onClick={this.handleSubmit}
-                        disabled={false}
+                        disabled={!formValid}
                       />
                     </div>
                   </form>

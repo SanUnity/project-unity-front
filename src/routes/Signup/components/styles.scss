@@ -63,6 +63,16 @@
       color: $color-dark-gray;
     }
 
+    .two-in-row {
+        display: flex;
+        flex-direction: row;
+
+        > div:first-child {
+          margin-right: 12px;
+          flex: 1 1 25%;
+        }
+    }
+
     h4 {
       color: $color-gray-35;
       font-family: OpenSans, sans-serif;

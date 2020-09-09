@@ -81,8 +81,10 @@ export default {
       mainTitle: 'Por "TU PAIS"',
       mainSubtitle: '#QuédateEnCasa',
       description: 'Cuida tu salud, estamos contigo.',
-      label: 'Ingresa tu número de celular para comenzar',
-      placeholder: 'Escribe 10 dígitos',
+      label: '',
+      placeholder: 'Ingresa tu número de celular',
+      labelPre: ' ', // NUEVO
+      placeholderPre: '+00', // NUEVO
       label1: 'Acepto los términos y condiciones de este servicio y su política de privacidad.',
       label2: 'Acepto los',
       label3: 'términos y condiciones',
