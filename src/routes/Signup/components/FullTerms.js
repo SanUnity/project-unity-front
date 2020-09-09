@@ -9,64 +9,48 @@ function FullTerms({ onClose }) {
         <img src='/assets/images/green-arrow.svg' onClick={onClose} alt='' />
         <div className='terms-and-conditions-wrapper'>
 
-          <h3>AVISO DE PRIVACIDAD </h3>
+          <h3>PRIVACY TERMS</h3>
 
-          <p>La Secretaría de Salud, con domicilio en Lieja No. 7, Colonia Juárez, Alcaldía Cuauhtémoc, Código Postal 06600, Ciudad de México, en cumplimiento con lo establecido en la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental, Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados, así como de la normatividad compromisos: </p>
-
-          <ul>
-            <li>Los datos que solicitamos en el formulario colocado dentro de nuestra aplicación móvil únicamente serán utilizados para poder establecer contacto contigo en relación a tu petición o comentario; y serán protegidos en términos de las disposiciones jurídicas aplicables. </li>
-            <li>Tu petición o comentario podrá ser incluida dentro de los informes estadísticos que se elaboren para el seguimiento de avances institucionales del Gobierno Federal. No obstante, dichos informes serán meramente estadísticos y no incluirán información que permitan identificarte en lo individual. </li>
-            <li>Salvo las excepciones previstas en lo señalado en los artículos 22 de la Ley Federal de Transparencia y Acceso a la Información Pública Gubernamental y 120 de la Ley General de Transparencia y Acceso a la Información Pública, tus datos personales podrán ser proporcionados a terceros, adoptando las medidas necesarias que garanticen la seguridad de los datos personales. </li>
-            <li>Nos reservamos el derecho a realizar cualquier actualización al presente aviso de privacidad, sin que ello requiera previa notificación. </li>
-          </ul>
-
-          <p>La Secretaría de Salud no se responsabiliza del uso o mala utilización del contenido, se reserva el derecho de actualizar, modificar o eliminar la información contenida en sus aplicaciones. </p>
-
-          <p>Tomando en consideración los elementos enunciados en la propuesta anterior, se plantea el siguiente proyecto, que se pone a consideración. </p>
-
-          <h3>AVISO DE PRIVACIDAD INTEGRAL DE LA APLICACIÓN MÓVIL COVID- 19MX </h3>
-
-          <p>La Secretaría de Salud, a través de la Subsecretaria de Prevención y Promoción de la Salud, con domicilio en la calle de Lieja, número 7, colonia Juárez, demarcación territorial Cuauhtémoc, México, código postal 06600, en la Ciudad de México, es la responsable del tratamiento de los datos personales que se recaben a través de la aplicación móvil COVID-19MX, la cual se encuentra disponible para descarga y ejecución en los sistemas operativos iOS y Android; los cuales serán protegidos conforme a lo dispuesto por la Ley General de Protección de Datos Personales en Posesión de  Sujetos Obligados, los Lineamientos Generales de Protección de Datos Personales para el Sector Público y demás normatividad aplicable. </p>
-
-          <p>Los datos personales recolectados por la aplicación móvil COVID- 19MX serán tratados bajo la responsabilidad del sujeto obligado, conforme a sus atribuciones legales y el presente aviso de privacidad. </p>
-
-          <p>Los datos personales recabados a través de la aplicación móvil COVID-19MX, son: </p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed libero quis leo consequat consectetur. Suspendisse ullamcorper sapien ut lectus auctor auctor. Sed ornare enim arcu, elementum iaculis leo tincidunt in. Donec id erat neque. Phasellus rhoncus, ante sit amet auctor accumsan, mauris urna maximus neque, id pulvinar libero tortor a ante. Phasellus blandit auctor porta. Aenean vitae feugiat tellus, interdum malesuada metus. : </p>
 
           <ul>
-            <li>Nombre, apellidos, género, edad, domicilio y teléfono </li>
-            <li>Antecedentes médicos (embarazo, hipertensión, diabetes, obesidad, entre otros) y síntomas actuales </li>
+            <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+            <li>Vestibulum eget ipsum a sem fermentum condimentum.</li>
+            <li>Quisque maximus leo id fringilla ultrices.</li>
+            <li>Cras eu nibh a lorem interdum hendrerit.</li>
           </ul>
 
-          <p>Las finalidades del tratamiento de los datos personales recabados son: </p>
+          <p>Nullam pulvinar tincidunt lorem, quis ornare velit. Nulla eu velit at sapien iaculis auctor. Ut orci nisl, tempor ac dui sit amet, vestibulum porta sapien. </p>
+
+          <p>Fusce cursus porttitor mi, ullamcorper molestie sapien. Sed suscipit tortor et erat suscipit sollicitudin. Mauris vestibulum blandit tellus, a feugiat mi porta eget.</p>
+
+          <h3>Vivamus bibendum elit est.</h3>
+
+          <p>Pellentesque malesuada augue erat, sit amet venenatis lorem congue faucibus. Nulla ante sapien, porta in enim vitae, fermentum pharetra dui. Nullam porttitor felis eget massa egestas ullamcorper. </p>
+
+          <p>Ut eu nibh metus. Curabitur volutpat diam vel justo dictum bibendum. Integer magna massa, scelerisque accumsan purus non, luctus varius justo. </p>
+
+          <p>Nunc non sodales lacus. Sed vel risus sit amet mauris rhoncus gravida: </p>
 
           <ul>
-            <li>Brindar orientación médica a las personas que proporcionaron sus datos para ser contactadas y en su caso atender la situación de emergencia que potencialmente pueda ocasionarse. </li>
-            <li>Estadísticos necesarios para que las autoridades sanitarias y epidemiológicas dirijan acciones pertinentes a la enfermedad COVID-19. </li>
+            <li>Vivamus porta libero efficitur velit gravida, vitae venenatis sapien imperdiet.</li>
+            <li>Suspendisse sit amet ipsum sit amet ligula pulvinar mattis.</li>
           </ul>
 
-          <p>No se recabarán los datos personales de las personas usuarias que no aportan una acumulación de síntomas relacionados con COVID-19. </p>
+          <p>Mauris sollicitudin, est quis ornare vulputate, nisi tellus blandit arcu: </p>
 
-          <p>La acumulación de datos de sintomatología en relación con los datos personales de los usuarios, son datos sensibles, cuyo tratamiento se sujetará a lo dispuesto por la normativa correspondiente, y con las excepciones previstas en el artículo 22 fracción VII de la Ley General de Protección de Datos Personales en Posesión de Sujetos Obligados. </p>
+          <ul>
+            <li>Aliquam at est semper, tincidunt neque id, ullamcorper elit.</li>
+            <li>Sed ut neque eu nunc sagittis malesuada eget tempus neque.</li>
+          </ul>
 
-          <h3>Fundamento legal para llevar a cabo el tratamiento </h3>
+          <p>Fusce egestas nisl quis dui tempor tincidunt. In sit amet mi placerat, consectetur sem nec, hendrerit augue. Curabitur eu tristique urna. Nullam ipsum ex, tempor non sapien sit amet, viverra congue ex. Sed porta urna sit amet consequat dignissim. Praesent efficitur risus odio, ut consequat turpis malesuada non. Donec a massa vehicula, dignissim sem at, malesuada velit.</p>
 
-          <p>La Secretaría de Salud trata los datos personales antes señalados con fundamento en los artículos 1° y 39 fracciones I, XVI, XXI y XXVI de la Ley Orgánica de la Administración Pública Federal, así como lo dispuesto en el artículo 10, fracción VI del Reglamento Interior de la Secretaría de Salud, y lo señalado en el artículo primero del Acuerdo por el que se establecen las medidas preventivas que se deberán implementar para la mitigación y control de los riesgos para la salud que implica la enfermedad por el virus SARS-CoV2 (COVID-19), publicado en el Diario Oficial de la Federación el día 24 de marzo de 2020. </p>
+          <p>Curabitur auctor eros sit amet quam hendrerit dignissim. Maecenas malesuada nisi semper, vestibulum ipsum non, accumsan sapien.</p>
 
-          <h3>Mecanismo para ejercer sus derechos de acceso, rectificación, cancelación u oposición de sus datos personales (ARCO) </h3>
+          <h3>Nunc sollicitudin enim magna, posuere iaculis ex mattis vel</h3>
 
-          <p>
-            {'El titular de los datos podrá ejercer sus derechos ARCO personalmente ante la Unidad de Transparencia de la Secretaría de Salud, con domicilio en Marina Nacional, número 60, Planta Baja, colonia Tacuba, Alcaldía Miguel Hidalgo, México, código postal 11400, en la Ciudad de México, o bien, a través de la Plataforma Nacional de Transparencia en'}
-            <a className='privacy-link' target='_blank' rel='noopener noreferrer' href='http://www.plataformadetransparencia.org.mx'>http://www.plataformadetransparencia.org.mx</a>
-          </p>
-
-          <h3>Transferencia de datos personales </h3>
-
-          <p>Se podrán transferir sus datos personales a las instituciones de salud que integran el Sistema Nacional de Salud, para dar cumplimiento a las acciones extraordinarias decretadas por la Secretaría de Salud. No se realizarán transferencias adicionales, salvo aquéllas que sean necesarias para atender requerimientos de información de una autoridad competente, en ejercicio de sus atribuciones y que estén debidamente fundados y motivados. </p>
-
-          <h3>Cambios al aviso de privacidad </h3>
-
-          <p>En caso de que existir una modificación a este aviso de privacidad, se notificará a travé de avisos en la aplicación móvil COVID-19MX. </p>
-
+          <p>Curabitur vehicula enim mi, sed venenatis magna dignissim ut. Nam fermentum ullamcorper eros, in finibus risus rutrum ut. Nunc tincidunt pretium elit, sit amet semper ipsum iaculis eu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Donec a mauris ut lorem pulvinar ultricies. Aenean quis dolor tincidunt, rutrum quam non, varius est. Donec venenatis tellus vitae erat efficitur scelerisque. Pellentesque sit amet nisl et est pharetra finibus. Proin bibendum justo lectus, vel imperdiet lacus varius at. Ut ultricies odio eget congue gravida. Nulla facilisi. Morbi in lorem vehicula, faucibus nunc sit amet, euismod velit.</p>
         </div>
       </div>
     </React.Fragment>

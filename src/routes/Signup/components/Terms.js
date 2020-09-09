@@ -29,28 +29,28 @@ class Terms extends Component {
             <br />
             <div className='c1'>
               <p className='c11'>
-                <span className='c12 c8'>AVISO DE PRIVACIDAD SIMPLIFICADO DE LA APLICACI&Oacute;N M&Oacute;VIL COVID-19MX</span>
+                <span className='c12 c8'>PRIVACY TERMS</span>
               </p>
               <p className='c2'>
                 <span className='c8 c12' />
               </p>
               <p className='c3'>
-                <span className='c4'>Los datos recabados pueden ser utilizados para establecer contacto con los ciudadanos.</span>
+                <span className='c4'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed libero quis leo consequat consectetur. Suspendisse ullamcorper sapien ut lectus auctor auctor.</span>
               </p>
               <p className='c3'>
-                <span className='c4'>La Secretar&iacute;a de Salud, a trav&eacute;s de la Subsecretaria de Prevenci&oacute;n y Promoci&oacute;n de la Salud,</span><span className='c7'>&nbsp;es la responsable del tratamiento de los datos personales y sensibles que se recolectan a trav&eacute;s de </span><span className='c0'>aplicaci&oacute;n m&oacute;vil COVID-19MX. </span>
+                <span className='c4'>Sed ornare enim arcu, elementum iaculis leo tincidunt in. Donec id erat neque. Phasellus rhoncus, ante sit amet auctor accumsan, mauris urna maximus neque, id pulvinar libero tortor a ante. Phasellus blandit auctor porta. Aenean vitae feugiat tellus, interdum malesuada metus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur porttitor orci justo. Morbi vehicula, urna in dapibus efficitur, magna elit consectetur elit, vitae consequat dolor erat at tellus.</span>
               </p>
               <p className='c3'>
-                <span className='c7 c8'>Sus datos personales ser&aacute;n utilizados con las siguientes finalidades:</span>
+                <span className='c7 c8'>Vivamus tortor quam, porta vitae diam nec, eleifend consequat elit:</span>
               </p>
               <ul className='c5 lst-kix_list_1-0 start'>
-                <li className='c10'><span className='c0'>Brindar orientaci&oacute;n m&eacute;dica a las personas que proporcionaron sus datos para ser contactadas y en su caso atender la situaci&oacute;n de emergencia que potencialmente pueda ocasionarse. </span></li>
-                <li className='c3 c13'><span className='c0'>Estad&iacute;sticos necesarios para que las autoridades sanitarias y epidemiol&oacute;gicas dirijan acciones pertinentes a la enfermedad COVID-19.</span></li>
+                <li className='c10'><span className='c0'>Nulla vel metus iaculis, laoreet felis vel, placerat magna. Nam aliquam leo non iaculis maximus. Morbi odio orci, scelerisque sit amet sapien vitae, pulvinar congue orci.</span></li>
+                <li className='c3 c13'><span className='c0'>Fusce ultrices magna ut nibh condimentum, vitae fermentum tortor rutrum. Nunc a ante efficitur, commodo erat in, varius augue. Pellentesque fermentum metus eu sapien interdum ultrices. Aenean tincidunt quam quis erat dapibus placerat in a nibh.</span></li>
               </ul>
               <p className='c3'>
-                <span className='c7 c8'>Si desea conocer nuestro aviso de privacidad integral, haz click
+                <span className='c7 c8'>In id leo mi. Sed dictum dui quis neque facilisis, nec aliquam orci congue
                   <a className='privacy-link' onClick={() => this.setState({ handleShowFullTerms: true })}>
-                    aquí
+                    click here
                   </a>
                 </span>
               </p>
