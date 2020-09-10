@@ -75,3 +75,19 @@ Your app is ready to be deployed!
 ### COVID19 Tests Forms Configurations:
 
 `src/constants/testConfiguration.js`
+
+## Support and Feedback
+
+The following channels are available for discussions, feedback, and support requests:
+
+| Type       | Channel                                                |
+| ---------- | ------------------------------------------------------ |
+| **Issues** | <a href="https://github.com/SanUnity/project-unity-front//issues" title="Open Issues"><img src="https://img.shields.io/github/issues/SanUnity/project-unity-front?style=flat"></a> |
+
+## Contribute
+
+If you want to contribute with this exciting project follow the steps in [How to create a Pull Request in GitHub](https://opensource.com/article/19/7/create-pull-request-github).
+
+## License
+
+This Source Code Form is subject to the terms of the [AGPL, v. 3.0](https://www.gnu.org/licenses/agpl-3.0.html).
