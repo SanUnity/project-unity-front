@@ -113,7 +113,7 @@ const Content = ({
                 <div className={`text-center ${data.moreButtonClassName}`}>
                   <Button
                     onClick={() => route.push(
-                      `${PARENT_ROUTE_PATH.MAIN_PAGE}/faq`,
+                      `${PARENT_ROUTE_PATH.MAIN_PAGE}/faq/faq`,
                       null,
                     )}
                     label={literals.buttonLabel}
