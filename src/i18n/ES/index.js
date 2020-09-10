@@ -701,7 +701,7 @@ export default {
         placeholder: '',
       },
 
-      /* CDMX QUESTIONS */
+      /* OTHER QUESTIONS */
 
       meet: {
         label: '¿Has estado con alguna persona que tenga COVID-19 (Coronavirus)?',
@@ -804,7 +804,7 @@ export default {
         label: '¿Tu dirección es correcta?',
       },
 
-      /* END CDMX QUESTIONS */
+      /* END OTHER QUESTIONS */
 
 
       subTitle: 'Datos personales',
@@ -1071,7 +1071,7 @@ export default {
           description: 'Toma el control de tu proximidady trabajemos juntos para frenar el Covid19. Consulta todos los detalles de privacidad pinchando en el vinculo:',
         },
       ],
-      privacy: 'Aviso de privacidad app COVID-19MX',
+      privacy: 'Aviso de privacidad app COVID-19',
     },
     pcrResults: { // TODO NUEVO
       profile: 'Perfil',
@@ -1105,7 +1105,7 @@ export default {
       positiveStep41: 'y',
       positiveStep42: 'de esta App.',
       shareMessage: '¡Hola! El resultado de mi muestra de laboratorio resultó positivo a SARS-COV-2, eso quiere decir que tengo la enfermedad COVID-19. Te mando este mensaje pidiéndote que sigas estas recomendaciones:',
-      shareURL: 'https://landing.coronavirus.gob.mx/auto-cuidado/',
+      shareURL: 'https://app.share.url/share',
       information: 'Información',
       news: 'Noticias',
       btnNext: 'Siguiente',

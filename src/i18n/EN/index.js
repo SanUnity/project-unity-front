@@ -701,7 +701,7 @@ export default {
         placeholder: '',
       },
 
-      /* CDMX QUESTIONS */
+      /* OTHER QUESTIONS */
 
       meet: {
         label: 'Have you been with someone who has COVID-19 (Coronavirus)?',
@@ -804,7 +804,7 @@ export default {
         label: 'Is your address correct?',
       },
 
-      /* END CDMX QUESTIONS */
+      /* END OTHER QUESTIONS */
 
       subTitle: 'Personal information',
       postalCodeParagraph: 'A digital map will be generated to indicate security zones with your Zip Code.',
@@ -1070,7 +1070,7 @@ export default {
           description: 'Take control of your proximity and let\'s work together to brake the Covid19. Check all the privacy details by clicking on the link: ',
         },
       ],
-      privacy: 'COVID-19MX app privacy notice',
+      privacy: 'COVID-19 app privacy notice',
     },
     pcrResults: { // TODO NUEVO
       profile: 'Profile',
@@ -1104,7 +1104,7 @@ export default {
       positiveStep41: 'and',
       positiveStep42: 'from this App.',
       shareMessage: 'Hello! The result of my laboratory sample was positive for SARS-COV-2, that means that I have COVID-19 disease. I am sending you this message asking you to follow these recommendations: ',
-      shareURL: 'https://landing.coronavirus.gob.mx/auto-cuída/',
+      shareURL: 'https://app.share.url/share',
       information: 'Information',
       news: 'News',
       btnNext: 'Next',
