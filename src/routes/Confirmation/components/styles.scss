@@ -18,7 +18,6 @@
     font-style: normal;
     font-size: 20px;
     line-height: 24px;
-    text-align: center;
     align-items: center;
     text-align: center;
     color: $color-black;
@@ -42,7 +41,7 @@
       color: $color-white;
       background-color: $color-error;
       margin-bottom: 32px;
-      font-family: OpenSans;
+      font-family: OpenSans, sans-serif;
       font-size: 16px;
       line-height: 24px;
       position: absolute;
@@ -70,7 +69,7 @@
     line-height: 24px;
     text-align: center;
     white-space: pre-wrap;
-    font-family: Bitter, sans-serif;;
+    font-family: Bitter, sans-serif;
   }
 
   .pas-in {
@@ -112,7 +111,7 @@
         color: $color-white;
         background-color: $color-red;
         margin-bottom: 32px;
-        font-family: OpenSans;
+        font-family: OpenSans, sans-serif;
         font-size: 16px;
         line-height: 24px;
       }

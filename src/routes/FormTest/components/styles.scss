@@ -123,13 +123,10 @@
 .form-field-sub-label {
   display: flex;
   justify-content: flex-end;
-}
 
-
-.form-field-sub-label {
   a {
     color: $color-primary;
-    font-family: Bitter;
+    font-family: Bitter, sans-serif;
     font-style: normal;
     font-weight: bold;
     font-size: 12px;

@@ -318,16 +318,13 @@ li.hos-dot:before {
 }
 
 .view-content-wrapper {
+  padding-top: 94px;
   &.map-active {
     .d-se {
       position: absolute;
       display: block;
     }
   }
-}
-
-.view-content-wrapper {
-  padding-top: 94px;
 }
 
 .modal-hospital-details {

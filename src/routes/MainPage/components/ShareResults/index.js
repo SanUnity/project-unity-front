@@ -48,10 +48,10 @@ class ShareResults extends Component {
     flagInfographic: false,
   };
 
-  async componentDidMount() {
-    // eslint-disable-next-line
-    const user = await sessionService.loadUser();
-    this.checkPCRTests();
+  componentDidMount() {
+    sessionService.loadUser().then(() => {
+      this.checkPCRTests();
+    });
   }
 
   componentWillUnmount() {
@@ -381,8 +381,8 @@ class ShareResults extends Component {
       if (localResult) {
         // const { sharing } = this.state;
         // this.sendSharedNativeNotification(sharing);
-        clearInterval(this.interval);
         localStorage.removeItem('ShareResult');
+        clearInterval(this.interval);
       } else {
         clearInterval(this.interval);
         localStorage.removeItem('ShareResult');

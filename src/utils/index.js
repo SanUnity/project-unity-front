@@ -89,7 +89,7 @@ export function formatDateNews(miliseconds) {
     return '-';
   }
   // eslint-disable-next-line
-  const date =  moment(miliseconds * 1000);
+  const date = new moment(miliseconds * 1000);
 
   return date.locale('es').format('DD [de] MMMM [de] YYYY');
   // return `${day} de ${month} de ${year}`;

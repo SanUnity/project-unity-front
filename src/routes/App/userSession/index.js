@@ -19,7 +19,7 @@ class UserSession {
   }) => {
     sessionService.saveSession({ token: jwt });
 
-    const BT_ACTIVE = BT_ACTIVE_FOR_ALL || BT_ACTIVE_STATES.indexOf(state) >= 0;
+    const BT_ACTIVE = BT_ACTIVE_FOR_ALL || (BT_ACTIVE_STATES && BT_ACTIVE_STATES.indexOf(state) >= 0);
 
     const user = {
       ...rest, mainProfile, state, bt_active: BT_ACTIVE,

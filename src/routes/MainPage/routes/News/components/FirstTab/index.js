@@ -29,25 +29,25 @@ const FirstTab = ({ literals, listItems, onClickNews }) => {
   };
 
   const groupByDate = (list) => {
-    const listGrouped = {};
+    const lGrouped = {};
 
     list.forEach((l) => {
       const { day, month, year } = getDate(new Date(l.date));
       const strDate = `${year}-${month}-${day}`;
 
-      if (typeof listGrouped[strDate] === 'undefined') {
-        listGrouped[strDate] = [];
+      if (typeof lGrouped[strDate] === 'undefined') {
+        lGrouped[strDate] = [];
       }
 
-      listGrouped[strDate].push(l);
+      lGrouped[strDate].push(l);
     });
 
-    return listGrouped;
+    return lGrouped;
   };
 
   const listGrouped = groupByDate(listItems);
 
-  return listGrouped ? (
+  return (listGrouped && Object.keys(listGrouped).length) ? (
     <div className='tab-pane active'>
       {!listItems.length && <p className='no-elements'>{literals.noNews}</p>}
       {Object.keys(listGrouped).map((date) => {

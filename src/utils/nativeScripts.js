@@ -71,7 +71,7 @@ window.onMobileDevice = () => {
   try {
     if (/android/i.test(userAgent)) {
       return true;
-    } if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream && window.webkit) {
+    } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream && window.webkit) {
       return true;
     } else if (window.location.hostname === 'localhost') {
       // return true;
