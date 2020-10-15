@@ -77,7 +77,7 @@
         "BROWSER": "none",
         "REACT_APP_API_URL": "https://back-unity.byglob.com/api",
         "REACT_APP_GA": "",
-        "REACT_APP_GOOGLE_API_KEY": "***REMOVED***"
+        "REACT_APP_GOOGLE_API_KEY": "*****"
       }
     },
     "build": {
@@ -85,7 +85,7 @@
       "env": {
         "REACT_APP_API_URL": "https://back-unity.byglob.com/api",
         "REACT_APP_GA": "",
-        "REACT_APP_GOOGLE_API_KEY": "***REMOVED***",
+        "REACT_APP_GOOGLE_API_KEY": "*****",
         "GENERATE_SOURCEMAP": "false",
         "INLINE_RUNTIME_CHUNK": "false"
       }
